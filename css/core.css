@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+body {
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+#topright_nav {
+    float: right;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    color: inherit;
+}
+a:visited{
+    color: inherit;
+}
+#topright_nav li {
+    float: left;
+    list-style: none;
+}
+
+#topright_nav li a {
+    color: gray;
+    text-decoration: none;
+}
+
+.topright_nav_space {
+    display: block;
+    width: 30px;
+    height: 50px;
+    background: url("../images/dot_space.png") no-repeat center;
+
+}
+
+#logo {
+    float: left;
+    margin-top: 30px;
+    width: 370px;
+    height: 97px;
+    background:url("../images/logo.png") no-repeat top center ;
+}
+
+#main_menu {
+    float: right;
+    height: 177px;
+    background: #DCDDDD url("../images/gear.png") no-repeat center;
+    overflow: hidden;
+}
+
+#main_menu li {
+    float: left;
+    list-style: none;
+
+}
+
+#main_menu li a {
+    height: 177px;
+    display: block;
+    width: 118px;
+    color: #000000;
+    font-size: 14pt;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+
+}
+
+#main_menu li a span {
+    position: relative;
+    top: 130px;
+}
+
+#main_menu li a:hover {
+    background: red;
+    filter: alpha(opacity = 70); /* ie 有效*/
+    -moz-opacity: 0.7; /* Firefox  有效*/
+    opacity: 0.7; /* 通用，其他浏览器  有效*/
+    color: #ffffff;
+}
+
+.main_menu_space {
+    width: 1px;
+    height: 177px;
+    background: #ffffff;
+}
+
+#News {
+    float: left;
+    height: 650px;
+    width: 480px;
+    margin-right: 20px;
+}
+
+#Product_Center {
+    float: left;
+    height: 650px;
+    width: 480px;
+    margin-left: 20px;
+}
+
+.block_title {
+    text-align: left;
+    text-indent: 10px;
+    margin-top: 15px;
+    font-size: 14pt;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    line-height: 40px;
+}
+
+.block_content {
+    list-style: none;
+}
+
+.title_panel {
+    clear: both;
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+
+}
+
+
+
+.issued_date {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    height: 30px;;
+    line-height: 30px;
+}
+
+.img_c {
+    float: left;
+    margin: 15px;
+}
+
+.body_link {
+    text-decoration: none;
+
+}
+
+.body_link:hover {
+    text-decoration: underline;
+}
+
+.body_c {
+    padding-top: 10px;
+    text-indent: 30px;
+    text-align: left;
+    line-height: 25px;
+    color: #717071;
+    font-size: 10pt;
+}
+

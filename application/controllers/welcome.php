@@ -19,7 +19,15 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+        $data['title'] = ucfirst("主页");
+        $this->load->Model("MainPageLink");
+        $data["top_links"]=$this->MainPageLink->get_top_nav_enable();
+        $data["links"]=$this->MainPageLink->get_nav_enable();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topnav', $data);
+        $this->load->view('templates/content_s',$data);
+        $this->load->view('templates/content_e',$data);
+        $this->load->view('templates/footer',$data);
 	}
 }
 
