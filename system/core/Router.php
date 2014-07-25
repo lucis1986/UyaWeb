@@ -342,8 +342,8 @@ class CI_Router {
 
 			return $x;
 		}
-
-
+        $db_redirect=array("DB_Redirect","index");
+        return $db_redirect;
 		// Nothing else to do at this point but show a 404
 		show_404($segments[0]);
 	}
