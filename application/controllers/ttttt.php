@@ -7,5 +7,7 @@
  */
 
 class ttttt extends \application\core\MY_Controller {
+ function test(){
 
+ }
 } 
