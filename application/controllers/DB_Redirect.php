@@ -11,7 +11,7 @@ class DB_Redirect extends CI_Controller
 {
     public function index()
     {
-        $module = $this->db->query('select  * from module where flag="' . $this->uri->segments[1] . '"')->result();
+        $module = $this->db->query('select  * from module where deleted=0 and flag="' . $this->uri->segments[1] . '"')->result();
         if (count($module) > 0) {
             $module_id=$module[0]->id;
             $module_title=$module[0]->title;

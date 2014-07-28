@@ -29,13 +29,16 @@
 
         padding: 0 10px;
         height: 30px;
+        margin-right: 5px;
 
     }
+
+
 </style>
 <script type="text/javascript">
 
 
-    var except_self=false;
+    var except_self = false;
     var self_flag = "";
     function getClientBounds() {
         var clientWidth;
@@ -48,8 +51,8 @@
     }
 
     /*设置客户端的高和宽*/
-    function div_center() {
-        var divId = document.getElementById('mxh');
+    function div_center(id) {
+        var divId = document.getElementById(id);
         var rr = new getClientBounds();
 
         divId.style.left = (rr.width - parseInt(divId.style.width)) / 2 + document.body.scrollLeft;
@@ -63,10 +66,11 @@
     }
     function dialog_close() {
         $('#mxh').css('display', "none");
+        $('#dialog_confirm').css('display', "none");
         $('#mask').css('display', 'none');
     }
     function add_module() {
-        except_self=false;
+        except_self = false;
         $('#module_op').attr('action', '/Services/CreateInfoModule');
 
 
@@ -75,9 +79,9 @@
 
     }
     function update_module(item) {
-        except_self=true;
+        except_self = true;
         var module_id = $(item).parent().find('input[name="module_id"]').val();
-        $('#module_op').attr('action', '/Services/UpdateInfoModule/'+module_id);
+        $('#module_op').attr('action', '/Services/UpdateInfoModule/' + module_id);
 
         $.ajax({
             method: 'GET',
@@ -99,9 +103,11 @@
     }
 
     $(function () {
-        div_center();
+        div_center("mxh");
+        div_center("dialog_confirm");
         onWindowResize.add(function () {
-            div_center();
+            div_center("mxh");
+            div_center("dialog_confirm");
         });
     })
 
@@ -121,8 +127,8 @@
             dataType: 'json',
             success: function (data) {
                 var flag_name = $('#flag').val();
-                if(except_self){
-                    data.splice(data.indexOf(self_flag),1)
+                if (except_self) {
+                    data.splice(data.indexOf(self_flag), 1)
                 }
                 if (data.indexOf(flag_name) >= 0) {
                     alert("已存在对应标识！");
@@ -136,18 +142,33 @@
         });
         return flag;
     }
+    function pre_remove() {
+        var remove_ids = [];
+        $("#module_content li:has(input:checked)").find("input[name='module_id']").each(function () {
+            remove_ids.push($(this).val());
+        });
+        if (remove_ids.length > 0) {
+            $("input[name='module_ids']").val(remove_ids);
+            $("#dialog_confirm").show();
+            $("#mask").show();
+        }else{
+            alert("所选为空！")
+        }
+
+    }
     function edit(item) {
         $(item).val("取消");
-        $(item).attr('onclick','cancel(this)');
-        $(item).after('<input type="button" class="menu_button" onclick="void(0)" value="删除所选"/>');
+        $(item).attr('onclick', 'cancel(this)');
+        $(item).after('<input type="button" class="menu_button" onclick="pre_remove()" value="删除所选"/>');
         $("#module_content li").each(function () {
             $(this).append("<input type='checkbox' style='position: absolute;top: 5px;right: 5px;width: 30px;height: 30px;'/>")
             $(this).append("<input type='button' onclick='update_module(this)' style='position: absolute;top: 5px;right: 45px;width: 40px;height: 30px;' value='编辑'/>")
         })
     }
-    function cancel(item){
+    function cancel(item) {
         $(item).val("编辑");
-        $(item).attr('onclick','edit(this)');
+        $(item).attr('onclick', 'edit(this)');
+        $(item).next().remove();
         $("#module_content li").each(function () {
             $(this).find("input[type='checkbox']").remove();
             $(this).find("input[type='button']").remove();
@@ -156,12 +177,11 @@
 
 </script>
 <div style="text-align: left;margin-left: 200px">
-    <div style="margin-left: 30px; margin-top: 10px;">
+    <div style="margin-left: 30px; margin-top: 10px; font-size: 0">
         <input type="button" class="menu_button" onclick="add_module()" value="添加"/>
         <input type="button" class="menu_button" onclick="edit(this)" value="编辑"/>
-
-
     </div>
+
     <div style=" margin-left: 20px;">
         <ul id="module_content" style="float: left">
             <?php foreach ($result as $row): ?>
@@ -171,6 +191,7 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <div style="clear: both"></div>
     </div>
 </div>
 <div style="clear: both"></div>
@@ -206,4 +227,27 @@
 
         </form>
     </div>
+
 </div>
+
+
+<div id="dialog_confirm" style="width: 300px;height:300px;background: white;position: fixed; display: none;">
+    <div style="position: relative; height: 30px; background: #ccc;text-align: left">
+        <label style="line-height: 30px;height: 30px;margin-left: 10px;">确认删除</label>
+
+        <div
+            style="position: absolute; top: 2px; right: 5px; width: 30px; height: 26px; line-height: 26px; font-size: 9pt;cursor: pointer"
+            onclick="dialog_close()">关闭
+        </div>
+    </div>
+    <div style="text-align: left;">
+        <form id="module_op" method="post">
+            <input type="hidden" name="module_ids"/>
+            <input type="submit" style="height: 30px;width: 80px;margin-left: 20px;margin-top: 20px;" value="确定">
+            <input type="button" style="height: 30px;width: 80px;margin-left: 20px;margin-top: 20px;" value="取消"
+                   onclick="dialog_close()">
+        </form>
+    </div>
+
+</div>
+

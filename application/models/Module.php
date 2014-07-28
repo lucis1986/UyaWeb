@@ -27,18 +27,18 @@ class Module extends CI_Model {
         return $query->result();
     }
     function get_from_type_id($type_id){
-        $sql = "select * from module where type_id=?";
+        $sql = "select * from module where type_id=? and deleted=0";
         $query=$this->db->query($sql,array($type_id));
         return $query->result();
     }
 
     function  get_module_type($id){
-        $sql = "select flag from type where id =(select type_id from module where id=?)";
+        $sql = "select * from type where id =(select type_id from module where id=?)";
         $query=$this->db->query($sql,array($id));
         return $query->result();
     }
     function get_from_id($id){
-        $sql = "select  * from  module where id=?";
+        $sql = "select  * from  module where id=? and deleted=0";
         $query=$this->db->query($sql,array($id));
         return $query->row();
     }
