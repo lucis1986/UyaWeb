@@ -102,4 +102,14 @@ class Services extends CI_Controller
         $this->load->helper('url');
         redirect($_SERVER["HTTP_REFERER"]);
     }
+
+    public function DeleteInfoModule($id)
+    {
+        $this->load->model("Module");
+        $this->Module->delete_entry($id);
+
+        $this->load->helper('url');
+        redirect($_SERVER["HTTP_REFERER"]);
+
+    }
 } 

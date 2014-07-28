@@ -61,9 +61,10 @@ class Module extends CI_Model {
         $this->db->update('module', $data,array('id'=>$id));
     }
 
-    function delete_entry()
+    function delete_entry($id)
     {
-        $this->db->delete('module', $this, array('id' => $_POST['id']));
+        $sql = "update module set deleted=1,flag=CONCAT(flag,'___".date('Y-m-d H:i:s',time())."') where id in (".$id.") and deleted=0";
+        $this->db->query($sql);
     }
 
 } 
