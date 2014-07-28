@@ -1,0 +1,99 @@
+<style type="text/css">
+    .marquee_img{
+        width: 233px;
+        height: 155px;
+    }
+</style>
+<div style="overflow:hidden; width:946px" id='div'>
+    <table border="0" align="center">
+        <tr>
+            <td>
+
+
+                <div id="div1" style=" display:inline">
+                    <table>
+                        <tr>
+                            <td>
+                                <img alt="" src="images/marquee2/1.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/2.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/3.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/4.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/5.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/6.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/7.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/8.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/9.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/10.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/11.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/12.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/13.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/14.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/15.jpg" class="marquee_img"/>
+                            </td>
+                            <td>
+                                <img alt="" src="images/marquee2/16.jpg" class="marquee_img"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="marquee_title">团干部参观大鹏LNG</span></td>
+                            <td><span class="marquee_title">青岛公司集体婚礼</span></td>
+                            <td><span class="marquee_title">团干部深圳到公司调研</span></td>
+                            <td><span class="marquee_title">海油工程第三次团代会</span></td>
+                            <td><span class="marquee_title">公司团委举办青年大讲堂</span></td>
+                            <td><span class="marquee_title">公司团委2014年第一次扩大会议</span></td>
+                            <td><span class="marquee_title">海油工程蓝海读书会</span></td>
+                            <td><span class="marquee_title">海油工程蓝海读书会</span></td>
+                            <td><span class="marquee_title">海油工程“一战到底”知识竞赛</span></td>
+                            <td><span class="marquee_title">海油工程“一战到底”知识竞赛</span></td>
+                            <td><span class="marquee_title">海油工程“一战到底”知识竞赛及读书征文评选</span></td>
+                            <td><span class="marquee_title">图文征集活动优秀作品展</span></td>
+                            <td><span class="marquee_title">渤海青年集体婚礼</span></td>
+                            <td><span class="marquee_title">青年创新创效课题结题验收审查会</span></td>
+                            <td><span class="marquee_title">青年志愿者接站</span></td>
+                            <td><span class="marquee_title">中捷石化团员来公司参观学习</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div id='div2' style=" display:inline"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">document.getElementById('div2').innerHTML = document.getElementById('div1').innerHTML;
+function move() {
+    if (document.getElementById('div2').offsetWidth - document.getElementById('div').scrollLeft <= 0) {
+        document.getElementById('div').scrollLeft -= document.getElementById('div1').offsetWidth
+    }
+    document.getElementById('div').scrollLeft++
+}
+setInterval("move()", 10)</script>

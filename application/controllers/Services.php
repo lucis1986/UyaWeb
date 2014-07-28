@@ -59,11 +59,14 @@ class Services extends CI_Controller
         }
     }
 
-    private function CreateModule($type_id){
-        echo "ssss";
+    private function CreateModule($type_id)
+    {
+        $this->load->model("Module");
+        $this->Module->insert_entry($type_id);
     }
 
-    public function CreateInfoModule(){
+    public function CreateInfoModule()
+    {
         $server_name = $_SERVER['SERVER_NAME']; //当前运行脚本所在服务器主机的名字。
         $sub_from = $_SERVER["HTTP_REFERER"]; //链接到当前页面的前一页面的 URL 地址
         $sub_len = strlen($server_name); //统计服务器的名字长度。
@@ -74,12 +77,29 @@ class Services extends CI_Controller
             echo $msg;
         } else {
             $this->load->Model("Type");
-            $result=$this->Type->get_from_flag("info");
-            if(!empty($result)){
+            $result = $this->Type->get_from_flag("info");
+            if (!empty($result)) {
                 $this->CreateModule($result->id);
             }
             $this->load->helper('url');
-            redirect("../management/module");
+            redirect($_SERVER["HTTP_REFERER"]);
         }
+    }
+
+    public function GetModule($id = null)
+    {
+        $this->load->model("Module");
+        $item = $this->Module->get_from_id($id);
+        if (!empty($item)) {
+            echo json_encode($item);
+        }
+    }
+
+    public function UpdateInfoModule($id)
+    {
+        $this->load->model("Module");
+        $this->Module->update_entry($id);
+        $this->load->helper('url');
+        redirect($_SERVER["HTTP_REFERER"]);
     }
 } 

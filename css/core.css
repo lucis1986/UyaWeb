@@ -52,7 +52,7 @@ a:visited{
 #main_menu {
     float: right;
     height: 177px;
-    background: #DCDDDD url("../images/gear.png") no-repeat center;
+    background: #DCDDDD url("../images/gear.png") no-repeat top left;
     overflow: hidden;
 }
 

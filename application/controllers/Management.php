@@ -261,7 +261,7 @@ class Management extends CI_Controller
             $config['total_rows'] = $this->$model->get_num();
             $start_item_num = $config['per_page'] * ($page_num - 1);
             $data['query'] = $this->$model->get_items_by_start_num($start_item_num, 20);
-            $data["module"] = $query_module[0];
+            $data["module"] = $query_module;
             $this->pagination->initialize($config);
             $this->load->view('manage_head.php', $data);
             $this->load->view('manage_left_nav.php', $data);

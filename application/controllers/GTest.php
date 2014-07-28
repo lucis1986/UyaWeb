@@ -8,6 +8,7 @@
 class GTest extends MY_Controller{
     function __construct()
     {
+        $this->check=true;
         parent::__construct();
     }
     function index(){

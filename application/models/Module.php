@@ -40,15 +40,25 @@ class Module extends CI_Model {
     function get_from_id($id){
         $sql = "select  * from  module where id=?";
         $query=$this->db->query($sql,array($id));
-        return $query->result();
+        return $query->row();
     }
 
-    function insert_entry()
+    function insert_entry($type_id)
     {
-        $this->title   = $_POST['title']; // 请阅读下方的备注
-        $this->type_id = $_POST['type'];
-        $this->flag=$_POST['flag'];
-        $this->db->insert('module', $this);
+        $data = array(
+            'title'=> $_POST['title'],
+            'type_id'=>$type_id,
+            'flag'=>$_POST['flag']
+        );
+        $this->db->insert('module', $data);
+
+    }
+    function update_entry($id){
+        $data=array(
+            'title'=> $_POST['title'],
+            'flag'=>$_POST['flag']
+        );
+        $this->db->update('module', $data,array('id'=>$id));
     }
 
     function delete_entry()

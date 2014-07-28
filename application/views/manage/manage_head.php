@@ -34,6 +34,7 @@
         .current_left{
             background: #595959;
         }
+
     </style>
     <?php if(isset($current_top_nav)&&isset($current_left_nav)):?>
     <script type="text/javascript">

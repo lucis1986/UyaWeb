@@ -29,7 +29,7 @@
         vertical-align: middle;
     }
 </style>
-<div style="text-align: left;margin-left: 200px;">
+<div id="right_area" style="text-align: left;margin-left: 200px;">
     <div style=" margin-top:20px">
         <form class="form_area" method="post" action="<?=$action?>">
             <?php for($i=0;$i<count($result);$i++): ?>
