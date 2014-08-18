@@ -6,7 +6,7 @@
  * Time: 上午11:51
  */
 
-class ZTest extends CI_Controller {
+class ZTest extends MY_Controllers {
 
     function __construct()
     {
@@ -78,7 +78,7 @@ class ZTest extends CI_Controller {
             imagechar($im,$font_size,$imstr[$i]["x"],$imstr[$i]["y"],$imstr[$i]["s"],$text_color);
             $verifycode.=$imstr[$i]["s"];
         }
-        //$_SESSION['code'] = $verifycode;
+        $_SESSION['Vcode'] = $verifycode;
 
 //显示图片
         imagepng($im);

@@ -53,7 +53,8 @@ class Module extends CI_Model {
         $this->db->insert('module', $data);
 
     }
-    function update_entry($id){
+    function update_entry($id)
+    {
         $data=array(
             'title'=> $_POST['title'],
             'flag'=>$_POST['flag']

@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '192.168.1.102';
+$db['default']['hostname'] = '192.168.1.110';
 $db['default']['username'] = 'myuser';
 $db['default']['password'] = 'mypassword';
 $db['default']['database'] = 'uya';
