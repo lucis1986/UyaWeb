@@ -262,29 +262,24 @@ class Management extends CI_Controller
             $start_item_num = $config['per_page'] * ($page_num - 1);
             $data['query'] = $this->$model->get_items_by_start_num($start_item_num, 20);
             $data["module"] = $query_module;
+            $data["types"]=$this->GetTypes();
+            $data["current_top_nav"]="Module";
+            $data["current_left_nav"]=$query_type[0]->id;
             $this->pagination->initialize($config);
-            $this->load->view('manage_head.php', $data);
-            $this->load->view('manage_left_nav.php', $data);
-            $this->load->view('manage_list.php', $data);
-            $this->load->view('foot.php', $data);
+//            $this->load->view('manage_head.php', $data);
+//            $this->load->view('manage_left_nav.php', $data);
+//            $this->load->view('manage_list.php', $data);
+//            $this->load->view('foot.php', $data);
+            $this->load->view('manage/manage_head',$data);
+            $this->load->view('manage/manage_top');
+            $this->load->view('manage/manage_module_left');
+
         }
+    }
+    private function GetTypes(){
+        $this->load->model("Type");
+        return $this->Type->get_all();
     }
 
-    public function CreateModule()
-    {
-        $server_name = $_SERVER['SERVER_NAME']; //当前运行脚本所在服务器主机的名字。
-        $sub_from = $_SERVER["HTTP_REFERER"]; //链接到当前页面的前一页面的 URL 地址
-        $sub_len = strlen($server_name); //统计服务器的名字长度。
-        $check_from = substr($sub_from, 7, $sub_len); //截取提交到前一页面的url，不包含http:://的部分。
-        if ($check_from != $server_name) {
-            $msg = "数据来源有误！请从本站提交！";
-            header("Content-Type: text/html;charset=utf-8");
-            echo $msg;
-        } else {
-            $this->load->model('Module');
-            $this->Module->insert_entry();
-            $this->load->helper('url');
-            redirect("../management/module");
-        }
-    }
+
 } 
