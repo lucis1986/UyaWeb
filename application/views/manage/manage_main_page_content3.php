@@ -19,8 +19,8 @@
         color: #838383;
     }
 </style>
-<div style="text-align: left;margin-left: 200px">
-    <div style=" margin: 20px;">
+<td id="right_area">
+    <div style="padding:20px;">
         <form class="form_area">
             <div>
                 <label>链接1</label>
@@ -39,5 +39,5 @@
             </div>
         </form>
     </div>
-</div>
-<div style="clear: both"></div>
+</td>
+

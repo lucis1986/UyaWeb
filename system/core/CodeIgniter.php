@@ -226,7 +226,7 @@
  *
  */
 	// Load the base controller class
-	require BASEPATH.'core/Controller.php';
+	require_once BASEPATH.'core/Controller.php';
 
 	function &get_instance()
 	{

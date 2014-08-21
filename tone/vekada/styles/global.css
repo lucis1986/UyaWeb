@@ -1,0 +1,13 @@
+﻿
+*{font-size:12px; font-family:"宋体",Arial, Helvetica, sans-serif}
+body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dd,dt,img,from,input{margin:0px; padding:0px}
+img{border:0}
+ul,li{list-style:none}
+.clear{width:0px; height:0px; line-height:0px; margin:0px; padding:0px; font-size:0px; clear:both}
+.t_l{text-align:left} .t_c{text-align:center} .t_t{text-align:right}  .f_l{float:left} .f_r{float:right}  .none{display:none}
+a{color:#666; text-decoration:none;}
+a:hover{color:#0165BB;}
+html {overflow:-moz-scrollbars-vertical;overflow-x:hidden} 
+html {min-height:950;}
+
+

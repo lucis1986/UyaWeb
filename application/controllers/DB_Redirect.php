@@ -20,7 +20,15 @@ class DB_Redirect extends CI_Controller
                 $class= $type[0]->flag;
                 require(APPPATH."controllers/".$class.".php");
                 $ci=new $class();
-                $method=$this->uri->segments[2];
+               if(isset($this->uri->segments[2]))
+               {
+                   $method=$this->uri->segments[2];
+               }else{
+                   show_404();
+               }
+                if(!in_array(strtolower($method), array_map('strtolower', get_class_methods($ci)))){
+                    show_404();
+                }
                 $ci->base_url="/".$this->uri->segments[1]."/".$method;
                 $ci->module_id=$module_id;
                 $ci->module_title=$module_title;

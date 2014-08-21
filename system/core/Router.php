@@ -263,6 +263,15 @@ class CI_Router {
 	 */
 	function _validate_request($segments)
 	{
+        //Saphir modified: URL redirect from database config
+        require_once BASEPATH.'core/Controller.php';
+        $temp_ci=new CI_Controller();
+        $module = $temp_ci->db->query('select  * from module where deleted=0 and flag="' .$segments[0] . '"')->row();
+        if (!empty($module) OR $segments[0]=="DB_Redirect"){
+            return array("DB_Redirect","index");
+        }
+        //
+
 		if (count($segments) == 0)
 		{
 			return $segments;
@@ -342,8 +351,7 @@ class CI_Router {
 
 			return $x;
 		}
-        $db_redirect=array("DB_Redirect","index");
-        return $db_redirect;
+
 		// Nothing else to do at this point but show a 404
 		show_404($segments[0]);
 	}

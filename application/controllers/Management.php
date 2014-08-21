@@ -13,29 +13,29 @@ class Management extends CI_Controller
         $this->load->view('manage/manage_head.php');
         $this->load->view('manage/manage_top.php');
         $this->load->view('manage/manage_start_content.php');
-        $this->load->view('foot.php');
+        $this->load->view('manage/manage_foot.php');
     }
 
-    public function  MainPage($id=1)
+    public function  MainPage($id = 1)
     {
-        $data["current_top_nav"]="MainPage";
-        $data["current_left_nav"]=$id;
-        $this->load->view('manage/manage_head.php',$data);
+        $data["current_top_nav"] = "MainPage";
+        $data["current_left_nav"] = $id;
+        $this->load->view('manage/manage_head.php', $data);
         $this->load->view('manage/manage_top.php');
         $this->load->view('manage/manage_main_page_left.php');
 
-        switch($id){
+        switch ($id) {
             case 1:
                 $this->load->Model('MainPageLink');
-                $data["result"]=$this->MainPageLink->get_top_nav();
-                $data["action"]="/Services/SaveTopLink";
-                $this->load->view('manage/manage_main_page_nav_edit.php',$data);
+                $data["result"] = $this->MainPageLink->get_top_nav();
+                $data["action"] = "/Services/SaveTopLink";
+                $this->load->view('manage/manage_main_page_nav_edit.php', $data);
                 break;
             case 2:
                 $this->load->Model('MainPageLink');
-                $data["result"]=$this->MainPageLink->get_nav();
-                $data["action"]="/Services/SaveLink";
-                $this->load->view('manage/manage_main_page_nav_edit.php',$data);
+                $data["result"] = $this->MainPageLink->get_nav();
+                $data["action"] = "/Services/SaveLink";
+                $this->load->view('manage/manage_main_page_nav_edit.php', $data);
                 break;
             case 3:
                 $this->load->view('manage/manage_main_page_content3.php');
@@ -46,53 +46,62 @@ class Management extends CI_Controller
             default:
                 break;
         }
-        $this->load->view('foot.php');
+        $this->load->view('manage/manage_foot.php');
     }
 
-    public function Module($id=null)
+    public function Module($id = null)
     {
         $this->load->model("Type");
         $data['types'] = $this->Type->get_all();
-        if(!isset($id)){
-            $query_id=$this->Type->get_min_id();
-            if(!empty($query_id)){
-                $id=$query_id->id;
+        if (!isset($id)) {
+            $query_id = $this->Type->get_min_id();
+            if (!empty($query_id)) {
+                $id = $query_id->id;
             }
         }
-        if(isset($id)){
-            $data["current_top_nav"]="Module";
-            $data["current_left_nav"]=$id;
-            $type_item=$this->Type->get_from_id($id);
-            $type=$type_item->flag;
-            $this->load->model('Module');
-            $data["result"]= $this->Module->get_from_type_id($id);
-            $data['types']=$this->Type->get_all();
-            $this->load->view('manage/manage_head.php',$data);
-            $this->load->view('manage/manage_top.php');
-            $this->load->view('manage/manage_module_left.php');
-            $this->load->view("manage/manage_module_".$type);
+        $data["current_top_nav"] = "Module";
+        $data["current_left_nav"] = $id;
+        $type_item = $this->Type->get_from_id($id);
+        $type = $type_item->flag;
+
+        $method="Load".ucfirst($type);
+
+        if(method_exists($this,$method)){
+            call_user_func_array(array($this,$method),array(&$data));
         }
-        $this->load->model('Module');
 
-//        $data['query'] = $this->Module->get_all();
-//        $this->load->view('m/manage_head.php', $data);
-//        $this->load->view('manage_left_nav.php', $data);
-//        $this->load->view('manage_module_list.php', $data);
-//        $this->load->view('foot.php', $data);
+        $this->load->view('manage/manage_head.php', $data);
+        $this->load->view('manage/manage_top.php');
+        $this->load->view('manage/manage_module_left.php');
+        $this->load->view("manage/manage_module_" . $type);
+        $this->load->view('manage/manage_foot.php');
+    }
 
+    private function  LoadInfo(&$data)
+    {
+        $this->load->model('InfoModule');
+        $data["result"] = $this->InfoModule->get_all();
+        $data["templates"] = $this->InfoModule->get_templates();
 
-
-        $this->load->view('foot.php');
 
     }
 
-    public function SinglePage($id=1){
-        $data["current_top_nav"]="SinglePage";
-        $data["current_left_nav"]=$id;
-        $this->load->view('manage/manage_head.php',$data);
+    private function  LoadProduct(&$data)
+    {
+        $this->load->model('ProductModel');
+        $data["result"]= $this->ProductModel->get_all();
+    }
+
+
+
+    public function SinglePage($id = 1)
+    {
+        $data["current_top_nav"] = "SinglePage";
+        $data["current_left_nav"] = $id;
+        $this->load->view('manage/manage_head.php', $data);
         $this->load->view('manage/manage_top.php');
         $this->load->view('manage/manage_module_left.php');
-        switch($id){
+        switch ($id) {
             case 1:
                 $this->load->view('manage/manage_main_page_content1.php');
                 break;
@@ -108,16 +117,17 @@ class Management extends CI_Controller
             default:
                 break;
         }
-        $this->load->view('foot.php');
+        $this->load->view('manage/manage_foot.php');
     }
 
-    public function Authority($id=1){
-        $data["current_top_nav"]="Authority";
-        $data["current_left_nav"]=$id;
-        $this->load->view('manage/manage_head.php',$data);
+    public function Authority($id = 1)
+    {
+        $data["current_top_nav"] = "Authority";
+        $data["current_left_nav"] = $id;
+        $this->load->view('manage/manage_head.php', $data);
         $this->load->view('manage/manage_top.php');
         $this->load->view('manage/manage_module_left.php');
-        switch($id){
+        switch ($id) {
             case 1:
                 $this->load->view('manage/manage_main_page_content1.php');
                 break;
@@ -133,37 +143,55 @@ class Management extends CI_Controller
             default:
                 break;
         }
-        $this->load->view('foot.php');
+        $this->load->view('manage/manage_foot.php');
     }
+
     public function edit($module_id = null, $id = null)
     {
 
         if (isset($id) && isset($module_id)) {
-            $this->load->model("Module");
-            $query = $this->Module->get_module_type($module_id);
-            if (count($query) > 0) {
+            $this->load->model("InfoModule");
+            $query = $this->InfoModule->get_module_type($module_id);
+            $module = $this->InfoModule->get_from_id($module_id);
+            if (count($query) > 0 && !empty($module)) {
                 $model = ucfirst(strtolower($query[0]->flag)) . "Model";
                 $this->load->model($model);
                 $this->$model->module_id = $module_id;
                 $query = $this->$model->get_from_id($id);
+
                 if (count($query) > 0) {
                     $data["query"] = $query[0];
                     $data["pre_url"] = $_SERVER["HTTP_REFERER"];
-                    $this->load->view('manage_head.php', $data);
-                    $this->load->view('manage_left_nav.php', $data);
-                    $this->load->view('manage_content.php', $data);
-                    $this->load->view('foot.php', $data);
+//                    $this->load->view('manage_head.php', $data);
+//                    $this->load->view('manage_left_nav.php', $data);
+//                    $this->load->view('manage_content.php', $data);
+//                    $this->load->view('manage/manage_foot.php', $data);
+                    $data["types"] = $this->GetTypes();
+                    $data["current_top_nav"] = "Module";
+                    $data["current_left_nav"] = $query[0]->id;
+                    $data["module"] = $module;
+                    $this->load->view('manage/manage_head', $data);
+                    $this->load->view('manage/manage_top');
+                    $this->load->view('manage/manage_module_left');
+                    $this->load->view('manage/manage_module_info_edit');
+                    $this->load->view('manage/manage_foot');
                 }
 
             }
         }
     }
 
+    private function GetTypes()
+    {
+        $this->load->model("Type");
+        return $this->Type->get_all();
+    }
+
     public function delete($module_id = null, $id = null)
     {
         if (isset($id) && isset($module_id)) {
-            $this->load->model("Module");
-            $query = $this->Module->get_module_type($module_id);
+            $this->load->model("InfoModule");
+            $query = $this->InfoModule->get_module_type($module_id);
             if (count($query) > 0) {
                 $model = ucfirst(strtolower($query[0]->flag)) . "Model";
                 $this->load->model($model);
@@ -186,8 +214,8 @@ class Management extends CI_Controller
             header("Content-Type: text/html;charset=utf-8");
             echo $msg;
         } else {
-            $this->load->model("Module");
-            $query = $this->Module->get_module_type($module_id);
+            $this->load->model("InfoModule");
+            $query = $this->InfoModule->get_module_type($module_id);
             if (count($query) > 0) {
                 $model = ucfirst(strtolower($query[0]->flag)) . "Model";
                 $this->load->model($model);
@@ -211,8 +239,8 @@ class Management extends CI_Controller
             header("Content-Type: text/html;charset=utf-8");
             echo $msg;
         } else {
-            $this->load->model("Module");
-            $query = $this->Module->get_module_type($module_id);
+            $this->load->model("InfoModule");
+            $query = $this->InfoModule->get_module_type($module_id);
             if (count($query) > 0) {
                 $model = ucfirst(strtolower($query[0]->flag)) . "Model";
                 $this->load->model($model);
@@ -227,24 +255,35 @@ class Management extends CI_Controller
 
     public function add($module_id = null)
     {
-        $data["pre_url"] = "/management/module";
+        $data["pre_url"] = "/management/ModuleManage/" . $module_id;
         $data["module_id"] = $module_id;
-        $this->load->model("Module");
-        $query = $this->Module->get_module_type($module_id);
-        if (count($query) > 0) {
-            $this->load->view('manage_head.php', $data);
-            $this->load->view('manage_left_nav.php', $data);
-            $this->load->view('manage_add.php', $data);
-            $this->load->view('foot.php', $data);
+        $this->load->model("InfoModule");
+        $query = $this->InfoModule->get_module_type($module_id);
+        $module = $this->InfoModule->get_from_id($module_id);
+        if (count($query) > 0 && !empty($module)) {
+//            $this->load->view('manage_head.php', $data);
+//            $this->load->view('manage_left_nav.php', $data);
+//            $this->load->view('manage_add.php', $data);
+//            $this->load->view('manage/manage_foot.php', $data);
+            $data["types"] = $this->GetTypes();
+            $data["current_top_nav"] = "Module";
+            $data["current_left_nav"] = $query[0]->id;
+            $data["module"] = $module;
+            $this->load->view('manage/manage_head', $data);
+            $this->load->view('manage/manage_top');
+            $this->load->view('manage/manage_module_left');
+            $this->load->view('manage/manage_module_info_add', $data);
+            $this->load->view('manage/manage_foot');
         }
 
     }
 
+
     public function ModuleManage($module_id = null, $page_num = 1)
     {
-        $this->load->model("Module");
-        $query_type = $this->Module->get_module_type($module_id);
-        $query_module = $this->Module->get_from_id($module_id);
+        $this->load->model("InfoModule");
+        $query_type = $this->InfoModule->get_module_type($module_id);
+        $query_module = $this->InfoModule->get_from_id($module_id);
 
         if (count($query_type) > 0 && count($query_module) > 0) {
             $model = ucfirst($query_type[0]->flag) . "Model";
@@ -262,24 +301,38 @@ class Management extends CI_Controller
             $start_item_num = $config['per_page'] * ($page_num - 1);
             $data['query'] = $this->$model->get_items_by_start_num($start_item_num, 20);
             $data["module"] = $query_module;
-            $data["types"]=$this->GetTypes();
-            $data["current_top_nav"]="Module";
-            $data["current_left_nav"]=$query_type[0]->id;
+            $data["types"] = $this->GetTypes();
+            $data["current_top_nav"] = "Module";
+            $data["current_left_nav"] = $query_type[0]->id;
             $this->pagination->initialize($config);
 //            $this->load->view('manage_head.php', $data);
 //            $this->load->view('manage_left_nav.php', $data);
 //            $this->load->view('manage_list.php', $data);
-//            $this->load->view('foot.php', $data);
-            $this->load->view('manage/manage_head',$data);
+//            $this->load->view('manage/manage_foot.php', $data);
+            $this->load->view('manage/manage_head', $data);
             $this->load->view('manage/manage_top');
             $this->load->view('manage/manage_module_left');
+            $this->load->view('manage/manage_module_info_list');
+            $this->load->view('manage/manage_foot');
+
 
         }
     }
-    private function GetTypes(){
-        $this->load->model("Type");
-        return $this->Type->get_all();
-    }
 
+   /* public function AddProduct(){
+        $this->load->Model("Type");
+        $product_type=$this->Type->get_from_flag("product");
+        if(empty($product_type)){
+           exit();
+        }
+        $data["types"] = $this->GetTypes();
+        $data["current_top_nav"] = "Module";
+        $data["current_left_nav"] =$product_type->id;
+        $this->load->view('manage/manage_head', $data);
+        $this->load->view('manage/manage_top');
+        $this->load->view('manage/manage_module_left');
+
+        $this->load->view('manage/manage_foot');
+    }*/
 
 } 

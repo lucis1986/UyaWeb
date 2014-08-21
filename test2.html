@@ -1,15 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html> 
+ 
 <head>
-    <style type="text/css">
-        *{
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="js/dist/themes/default/style.min.css" />
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/dist/jstree.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajax({
+                method:"get",
+                url:"http://sapphire:82/gtest",
+                dataType: 'json',
+                success:function(data){
+                   $t=0;
+                    $('#html1').jstree({'plugins':["wholerow"],"core":{
+                        'data' :data
+                    }});
+                    $('#html1')
+                        // listen for event
+                            .on('changed.jstree', function (e, data) {
+                                var i, j, r = [];
+                                for(i = 0, j = data.selected.length; i< j; i++) {
+                                    r.push(data.instance.get_node(data.selected[i]).text);
+                                }
+                                $('#event_result').html('Selected: ' + r.join(', '));
+                            })
+                        // create the instance
+                            .jstree();
+                }
+            })
+
+
+        });
+
+    </script>
 </head>
-<body style="">
-<button style="margin: 0;padding: 0;float: left">test</button>
-<button style="margin: 0;padding: 0;float: left">test</button>
-<div></div>
-</body>
+  
+<body>
+<div id="event_result"></div>
+<div id="html1">
+
+</div></body>
 </html>
