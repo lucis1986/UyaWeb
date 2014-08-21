@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['title'] = ucfirst("主页");
+       /* $data['title'] = ucfirst("主页");
         $this->load->Model("MainPageLink");
         $data["top_links"]=$this->MainPageLink->get_top_nav_enable();
         $data["links"]=$this->MainPageLink->get_nav_enable();
@@ -27,7 +27,11 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/topnav', $data);
         $this->load->view('templates/content_s',$data);
         $this->load->view('templates/content_e',$data);
-        $this->load->view('templates/footer',$data);
+        $this->load->view('templates/footer',$data);*/
+
+        $this->load->view('vekada/head');
+        $this->load->view('vekada/main');
+        $this->load->view('vekada/foot');
 	}
 }
 

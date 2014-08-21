@@ -11,13 +11,13 @@ class Info extends CI_Controller
 
     var $base_url = "/info/pages";
     var $module_id = 0;
-    var $module_title="";
+    var $module_title = "";
 
     public function  pages($page_num = 1)
     {
         $this->load->Model("MainPageLink");
-        $data["top_links"]=$this->MainPageLink->get_top_nav_enable();
-        $data["links"]=$this->MainPageLink->get_nav_enable();
+        $data["top_links"] = $this->MainPageLink->get_top_nav_enable();
+        $data["links"] = $this->MainPageLink->get_nav_enable();
         $this->load->library('pagination');
         $config["base_url"] = $this->base_url;
         $config['per_page'] = 20;
@@ -28,40 +28,36 @@ class Info extends CI_Controller
         $start_item_num = $config['per_page'] * ($page_num - 1);
         $this->load->model('InfoModel');
         $this->InfoModel->module_id = $this->module_id;
-        $config['total_rows'] =$this->InfoModel->get_num();
+        $config['total_rows'] = $this->InfoModel->get_num();
         $data['query'] = $this->InfoModel->get_items_by_start_num($start_item_num, 20);
         $data['title'] = $this->module_title;
         $data['block_title'] = $this->module_title;
-        $data['class']=$this->uri->segments[1];
+        $data['class'] = $this->uri->segments[1];
         $this->pagination->initialize($config);
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/TopNav', $data);
-        $this->load->view('templates/ListView', $data);
-        $this->load->view('templates/footer', $data);
+        load_template($this,"page_template",$data);
     }
 
-    public function index($id=null)
+
+    public function index($id = null)
     {
         $this->load->Model("MainPageLink");
-        $data["top_links"]=$this->MainPageLink->get_top_nav_enable();
-        $data["links"]=$this->MainPageLink->get_nav_enable();
+        $data["top_links"] = $this->MainPageLink->get_top_nav_enable();
+        $data["links"] = $this->MainPageLink->get_nav_enable();
         if (isset($id)) {
             $this->load->model('InfoModel');
             $this->InfoModel->module_id = $this->module_id;
             $item = $this->InfoModel->get_from_id($id);
-            if ($item) {
+            $this->load->model("InfoModule");
+            $template=$this->InfoModule->get_module_template($this->module_id);
+            if ($item&&!empty($template)) {
                 $data['id'] = $item[0]->id;
                 $data['title'] = $item[0]->title;
                 $data['body'] = $item[0]->body;
                 $data['block_title'] = $this->module_title;
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/TopNav', $data);
-                $this->load->view('templates/ContentView', $data);
-                $this->load->view('templates/footer', $data);
+                load_template($this,$template->flag,$data);
             }
         }
     }
-
 
     public function edit()
     {
@@ -102,4 +98,8 @@ class Info extends CI_Controller
             redirect("../news/index/" . $_POST['id']);
         }
     }
+
+
+
+
 }

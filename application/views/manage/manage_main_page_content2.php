@@ -24,8 +24,8 @@
         width: 400px;
     }
 </style>
-<div style="text-align: left;margin-left: 200px">
-    <div style=" margin-top:20px">
+<td id="right_area">
+    <div style="padding:20px;">
         <form class="form_area" method="post" action="/Services/SaveLink">
             <?php for($i=0;$i<count($result);$i++): ?>
                 <div>
@@ -41,5 +41,5 @@
             <input type="button" value="取消"  style="width: 100px;height: 30px;margin-left: 40px"/>
         </form>
     </div>
-</div>
-<div style="clear: both"></div>
+</td>
+

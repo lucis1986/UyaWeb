@@ -29,11 +29,12 @@
         vertical-align: middle;
     }
 </style>
-<div id="right_area" style="text-align: left;margin-left: 200px;">
-    <div style=" margin-top:20px">
+<td id="right_area">
+    <div style="height: 20px;"></div>
+    <div>
         <form class="form_area" method="post" action="<?=$action?>">
             <?php for($i=0;$i<count($result);$i++): ?>
-                <div>
+                <div style="white-space: nowrap">
                     <input type="hidden" name="link[<?=$i+1?>][]" value="<?=$result[$i]->id?>"/>
                     <label>标题<?=$i+1?></label>
                     <input class="title" type="text" name="link[<?=$i+1?>][]" value="<?=$result[$i]->title?>"/>
@@ -48,5 +49,5 @@
             <input type="button" value="取消" onclick="location.href='<?=$_SERVER["REQUEST_URI"]?>'" style="width: 100px;height: 30px;margin-left: 40px"/>
         </form>
     </div>
-</div>
-<div style="clear: both"></div>
+</td>
+

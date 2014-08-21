@@ -43,7 +43,7 @@ class InfoModel extends CI_Model {
             'modifier'=>'',
             'created'=>date('Y-m-d H:i:s',time()),
             'modified'=>date('Y-m-d H:i:s',time()),
-            'body'=> $this->body=$_POST['body']
+            'body'=> $_POST['body']
         );
         $this->db->insert('info', $data);
     }
@@ -55,12 +55,13 @@ class InfoModel extends CI_Model {
             'title' => $_POST['title'],
             'modifier'=>'',
             'modified'=>date('Y-m-d H:i:s',time()),
-            'body'=> $this->body=$_POST['body']
+            'body'=> $_POST['body']
         );
         $this->db->update('info', $data, array('id' => $_POST['id']));
     }
     function delete_entry($id=null)
     {
+
         $data = array(
             'deleted' =>1
         );

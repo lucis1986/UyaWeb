@@ -35,8 +35,8 @@ class DocModel extends CI_Model {
     }
     function get_all()
     {
-        $sql = "select  * from  doc where module_id=? ";
-        $query = $this->db->query($sql,array($this->module_id));
+        $sql = "select  * from  doc ";
+        $query = $this->db->query($sql);
         return $query->result();
     }
 
