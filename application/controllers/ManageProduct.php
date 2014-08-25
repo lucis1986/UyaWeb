@@ -47,6 +47,7 @@ class ManageProduct extends CI_Controller
         }
 
     }
+
     private function GetTypes()
     {
         $this->load->model("Type");
@@ -65,6 +66,14 @@ class ManageProduct extends CI_Controller
     function SaveEdit(){
         $this->load->model("ProductModel");
         $this->ProductModel->update_entry();
+        $this->load->helper('url');
+        $this->load->Model("Type");
+        $product_type=$this->Type->get_from_flag("product");
+        redirect("/Management/Module/".$product_type->id);
+    }
+    function Delete(){
+        $this->load->model("ProductModel");
+        $this->ProductModel->delete_entry();
         $this->load->helper('url');
         $this->load->Model("Type");
         $product_type=$this->Type->get_from_flag("product");

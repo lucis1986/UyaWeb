@@ -2,44 +2,107 @@
 <html> 
  
 <head>
-    <link rel="stylesheet" href="js/dist/themes/default/style.min.css" />
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/dist/jstree.min.js"></script>
-    <script type="text/javascript">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            $('.btn1').each(function(){
+                $(this).mouseenter(function(){
+                    $(this).addClass("btn1_h")
+                });
+                $(this).mouseleave(function(){
+                    $(this).removeClass("btn1_h")
+                });
 
-        $(function () {
-            $.ajax({
-                method:"get",
-                url:"http://sapphire:82/gtest",
-                dataType: 'json',
-                success:function(data){
-                   $t=0;
-                    $('#html1').jstree({'plugins':["wholerow"],"core":{
-                        'data' :data
-                    }});
-                    $('#html1')
-                        // listen for event
-                            .on('changed.jstree', function (e, data) {
-                                var i, j, r = [];
-                                for(i = 0, j = data.selected.length; i< j; i++) {
-                                    r.push(data.instance.get_node(data.selected[i]).text);
-                                }
-                                $('#event_result').html('Selected: ' + r.join(', '));
-                            })
-                        // create the instance
-                            .jstree();
-                }
+                $(this).mousedown(function(){
+                    $(this).addClass("btn1_click")
+                })
+                $(this).mouseup(function(){
+                    $(this).removeClass("btn1_click")
+                })
+            });
+            $("button").mousedown(function(){
+                alert("ttt");
             })
-
-
-        });
-
+        })
     </script>
+    <style type="text/css">
+        body{
+            background: #6b6b6b;
+        }
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .dialog{
+            position: fixed;
+            top:200px;
+            height: 200px;
+            background: #ffffff;
+        }
+        .dialog_title_panel{
+            background: url("/images/manage/dialog_title_bg.png") repeat-x;
+            height: 38px;
+            position: relative;
+        }
+        .dialog_title{
+            font-family: "微软雅黑";
+            font-size: 11pt;
+            height: 38px;
+            line-height: 38px;
+            margin-left: 10px;
+        }
+        .dialog_content{
+            margin: 30px;
+        }
+        .dialog_close{
+            position: absolute;
+            top:11px;
+            right: 10px;
+            width: 17px;
+            height: 17px;
+            background: url("/images/manage/close.png") no-repeat;
+        }
+        .btn1{
+            display: inline-block;
+            background: url("/images/manage/btn_bg.png") repeat-x;
+            height: 29px;
+            line-height: 29px;
+            font-size: 10pt;
+            font-family: "微软雅黑";
+            text-decoration: none;
+            color: #878787;
+            padding: 0 10px;
+            border: 1px solid #CCCCCC;
+        }
+        .btn1_h{
+            border: 1px solid #878787 !important;
+        }
+        .btn1_click{
+            background: #f0f0f0 !important;
+        }
+    </style>
 </head>
   
 <body>
-<div id="event_result"></div>
-<div id="html1">
-
-</div></body>
+<div class="dialog">
+    <div class="dialog_title_panel">
+        <div class="dialog_title">
+            标题
+        </div>
+        <div class="dialog_close" onclick=""></div>
+    </div>
+    <div class="dialog_content">
+        <table style="width: 200px">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <div style="text-align: center">
+            <a href="#" class="btn1">确认</a>
+            <button>ss</button>
+        </div>
+    </div>
+</div>
+</body>
 </html>

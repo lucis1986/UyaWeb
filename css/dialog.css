@@ -1,0 +1,33 @@
+.dialog{
+    position: fixed;
+    background: white;
+    visibility: hidden;
+    overflow: visible;
+    z-index: 1000;
+}
+.dialog_title_panel{
+    background: url("/images/manage/dialog_title_bg.png") repeat-x;
+    height: 38px;
+    position: relative;
+    cursor:move;
+}
+.dialog_title{
+    font-family: "微软雅黑";
+    font-size: 11pt;
+    height: 38px;
+    line-height: 38px;
+    margin-left: 10px;
+    color: #585858;
+}
+.dialog_content{
+    margin: 10px 20px 20px 25px;
+}
+.dialog_close{
+    position: absolute;
+    top:11px;
+    right: 10px;
+    width: 17px;
+    height: 17px;
+    background: url("/images/manage/close.png") no-repeat;
+    cursor: pointer;
+}
