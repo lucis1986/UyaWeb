@@ -119,10 +119,10 @@
                 <p><br />
 
 
-                    Email: <a href="#">info@vekada.com</a><br /><br />
-                    Phone: <a href="#">022-6554-1228</a><br /><br />
-                    Fax： <a href="#">022-6554-1227</a><br /><br />
-                    Web:  <a href="#">www.vekada.com</a>
+                    Email: <a href="javascript:void(0)">info@vekada.com</a><br /><br />
+                    Phone: <a href="javascript:void(0)">022-6554-1228</a><br /><br />
+                    Fax： <a href="javascript:void(0)">022-6554-1227</a><br /><br />
+                    Web:  <a href="javascript:void(0)">www.vekada.com</a>
                 </p>
 
                 <h3>&nbsp;</h3>

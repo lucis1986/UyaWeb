@@ -77,7 +77,7 @@
             <div class="call-to-action">
                 <h4>天津开发区威克达科技发展有限公司.</h4>
                 <p>以精湛的技术和服务，保障生产安全、提升生产效率、降低成本</p>
-                <a href="#" class="button branded big">联系我们</a>
+                <a href="javascript:void(0)" class="button branded big">联系我们</a>
             </div>
 
             <hr />

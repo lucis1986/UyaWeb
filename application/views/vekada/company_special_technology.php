@@ -62,8 +62,8 @@
                             </li>
                             <li class="comment_even"></li>
                             <li class="comment_odd">
-                                <div class="author"><img class="avatar" src="/tone/vekada/images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-                                <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
+                                <div class="author"><img class="avatar" src="/tone/vekada/images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="javascript:void(0)">A Name</a></span> <span class="wrote">wrote:</span></div>
+                                <div class="submitdate"><a href="javascript:void(0)">August 4, 2009 at 8:35 am</a></div>
                                 <p>3.2特点与参数：
                                     •防海生物效率95％以上
                                     •防振、防湿、耐高温、耐低温
@@ -84,27 +84,27 @@
                     <div class="subnav">
                         <h2>产品应用范围</h2>
                         <ul>
-                            <li><a href="#">航运业和海洋开发</a></li>
-                            <li><a href="#">船用生活污水的处理装置</a>
+                            <li><a href="javascript:void(0)">航运业和海洋开发</a></li>
+                            <li><a href="javascript:void(0)">船用生活污水的处理装置</a>
                                 <ul>
-                                    <li><a href="#">生活污水处理</a></li>
+                                    <li><a href="javascript:void(0)">生活污水处理</a></li>
                                     <li>
-                                        <div><a href="#">医疗机构污水处理</a></div>
+                                        <div><a href="javascript:void(0)">医疗机构污水处理</a></div>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="#">工业废水处理</a>            </li>
+                            <li><a href="javascript:void(0)">工业废水处理</a>            </li>
                         </ul>
                     </div>
                     <div class="holder">
                         <h2 class="title"><img src="/tone/vekada/banner/4.jpg" alt="" width="60" height="60" />防海生物实时监控系统</h2>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该软件为天津威克达科技自主开发设计，以Windows窗口风格为主基调，构建一个设备管理平台，实时监测、实时报警、实时数据曲线、报警历史存档、操作记录查询可一并实现，并预测及预报主要设备的维修数据及周期（如滤器的清洗，电解槽的清洗等），提供维修报告及报表，该软件可随意安装在任何可以直接与生活污水处理装置PLC进行通讯的上位机上，安装后自动运行。</p>
-                        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+                        <p class="readmore"><a href="javascript:void(0)">Continue Reading &raquo;</a></p>
                     </div>
                     <div class="holder">
                         <div class="imgholder"><img src="/tone/vekada/banner/3.jpg" alt="" width="290" height="100" /></div>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;采用具有威克达专利的新型高产氯量电解电极（实用新型专利），比同类电极电耗低25%-30%，具有电极效率高、使用寿命长、节约能源、安装方便、灭菌除藻效果可靠等特点</p>
-                        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+                        <p class="readmore"><a href="javascript:void(0)">Continue Reading &raquo;</a></p>
                     </div>
                 </div>
                 <div class="clear"></div>

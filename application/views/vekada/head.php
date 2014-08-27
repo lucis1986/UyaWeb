@@ -82,14 +82,14 @@
         <nav class="menu">
             <ul>
                 <li class="current-menu-item"><a href="/index.php">Home</a></li>
-                <li><a href="#">公司介绍</a>
+                <li><a href="javascript:void(0)">公司介绍</a>
                     <ul>
                         <li><a href="/Company/Intro">公司简介</a></li>
                         <li><a href="/Company/Development">发展历程</a></li>
                         <li><a href="/Company/Culture">企业文化</a></li>
                     </ul>
                 </li>
-                <li><a href="#">我们的产品</a>
+                <li><a href="javascript:void(0)">我们的产品</a>
                     <ul>
 
                         <li><a href="/Product/Index/2">次氯酸钠装置</a></li>
@@ -98,7 +98,7 @@
                         <li><a href="/Product/SpecialTechnology">专有技术</a></li>
                     </ul>
                 </li>
-                <li><a href="#">公司动态</a>
+                <li><a href="javascript:void(0)">公司动态</a>
                     <ul>
 
                         <li><a href="/CompanyNews/Pages">公司新闻</a></li>
@@ -107,7 +107,7 @@
                     </ul>
                 </li>
 
-                <li><a href="#">成功案例</a>
+                <li><a href="javascript:void(0)">成功案例</a>
                     <ul>
                         <li><a href="/SuccessCase/DCS">DCS</a></li>
                         <li><a href="/SuccessCase/SCAD">SCAD</a></li>

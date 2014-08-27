@@ -4,7 +4,7 @@
             <td>
                 <div class="op_panel">
                     <a href="<?= $pre_url ?>" title="返回" class="back_btn op_btn"></a>
-                    <a href="#" onclick="save()" title="保存" class="save_btn op_btn"></a>
+                    <a href="javascript:void(0)" onclick="save()" title="保存" class="save_btn op_btn"></a>
                 </div>
             </td>
             <td style="width: 100%">

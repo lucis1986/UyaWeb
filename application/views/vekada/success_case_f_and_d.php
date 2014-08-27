@@ -74,7 +74,7 @@
     <div class="call-to-action">
         <h4>Lorem ipsum dolor sit amet, consectetuer.</h4>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p>
-        <a href="#" class="button branded big">Sign up today!</a>
+        <a href="javascript:void(0)" class="button branded big">Sign up today!</a>
     </div>
 
     <hr />

@@ -56,12 +56,12 @@
                 <ul>
                     <li><a href="index.html">Home</a>
                         <ul>
-                            <li><a href="#">2013年....</a></li>
-                            <li><a href="#">2012年威克达科技商标注册成功</a></li>
-                            <li><a href="#">2011年企业增资</a></li>
-                            <li><a href="#">2010年成功申报国家级科技项目</a></li>
-                            <li><a href="#">2009年2月 加入滨海新区软件与服务外包</a></li>
-                            <li><a href="#">2008年9月 获国家级科技企业创新基金</a></li>
+                            <li><a href="javascript:void(0)">2013年....</a></li>
+                            <li><a href="javascript:void(0)">2012年威克达科技商标注册成功</a></li>
+                            <li><a href="javascript:void(0)">2011年企业增资</a></li>
+                            <li><a href="javascript:void(0)">2010年成功申报国家级科技项目</a></li>
+                            <li><a href="javascript:void(0)">2009年2月 加入滨海新区软件与服务外包</a></li>
+                            <li><a href="javascript:void(0)">2008年9月 获国家级科技企业创新基金</a></li>
                         </ul>
                     </li>
                     <li class="current-page-ancestor"><a href="">2007年4月 被评为高新技术企业</a>

@@ -5,7 +5,7 @@
                 <td>
                     <div class="op_panel">
                         <a href="<?= $pre_url ?>" title="返回" class="back_btn op_btn"></a>
-                        <a href="#" onclick="save()" title="保存" class="save_btn op_btn"></a>
+                        <a href="javascript:void(0)" onclick="save()" title="保存" class="save_btn op_btn"></a>
                     </div>
                 </td>
                 <td style="width: 100%">
@@ -28,7 +28,7 @@
             <tr>
                 <td>
                     <div class="op_panel">
-                        <a href="#" onclick="show_add_panel()" title="添加" class="add_btn op_btn"></a>
+                        <a href="javascript:void(0)" onclick="show_add_panel()" title="添加" class="add_btn op_btn"></a>
                     </div>
                 </td>
                 <td style="width: 100%">
@@ -105,30 +105,34 @@
                 width: '800px',
                 height: '400px'
             });
-            dialog_center(".dialog");
+
         });
         function save() {
             $("#body").val(editor.html());
             $('#submit_form').submit();
         }
         function show_add_panel() {
-            dialog_center()
-            case_editor.html('');
-            case_editor.resize('800px', '400px');
+
+
             $("input[name='case_title']").val("");
             $("input[name='op_type']").val("add");
             $('#op_title').text("添加案例");
-            dialog_show("#op_panel");
+            dialog_show("op_panel",rs_case_editor);
+
+
         }
         function show_edit_panel(index) {
-            var items = $("input[name='case[" + index + "][]'");
-            $('input[name="case_title"').val(decodeURIComponent(items.eq(1).val()));
+            var items = $("input[name='case[" + index + "][]']");
+            $('input[name="case_title"]').val(decodeURIComponent(items.eq(1).val()));
             case_editor.html(decodeURIComponent(items.eq(2).val()));
-            case_editor.resize('800px', '400px')
             $("input[name='op_type']").val("edit");
             $("input[name='edit_index']").val(index);
             $('#op_title').text("编辑案例");
-            dialog_show("#op_panel");
+            dialog_show("op_panel",rs_case_editor);
+
+        }
+        function rs_case_editor(){
+            case_editor.resize('800px', '400px');
         }
         function op_case() {
             var type = $("input[name='op_type']").val();
@@ -144,7 +148,7 @@
         function add_case() {
             var num = get_case_index();
             var html_str = "";
-            var title = $('input[name="case_title"').val();
+            var title = $('input[name="case_title"]').val();
             var body = case_editor.html();
             html_str += "<tr id='case_tr" + get_case_index() + "'>";
             html_str += "<td  style='width: 100%' id='case_title_" + get_case_index() + "'>";
@@ -164,8 +168,8 @@
         }
         function edit_case() {
             var index = $("input[name='edit_index']").val();
-            var items = $("input[name='case[" + index + "][]'");
-            var title = $('input[name="case_title"').val();
+            var items = $("input[name='case[" + index + "][]']");
+            var title = $('input[name="case_title"]').val();
             var body = case_editor.html();
             $('#case_title_' + index).html(title);
             items.eq(1).val(encodeURIComponent(title));

@@ -5,7 +5,7 @@
 
     <div
         style="margin: 10px 0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;text-align: center;min-height: 300px;">
-        <a href="#" onclick="GetContents()">save</a>
+        <a href="javascript:void(0)" onclick="GetContents()">save</a>
 
         <div id="test"></div>
         <form id="news_form" method="post" action="/news/save">

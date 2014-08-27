@@ -72,7 +72,7 @@
         <div class="call-to-action">
             <h4>Lorem ipsum dolor sit amet, consectetuer.</h4>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p>
-            <a href="#" class="button branded big">Sign up today!</a>
+            <a href="javascript:void(0)" class="button branded big">Sign up today!</a>
         </div>
 
         <hr />
@@ -121,20 +121,20 @@
             <ul>
                 <li><a href="#>2014年</a>
                     <ul>
-                        <li><a href="#">垦利10-1项目-电解铜铝装置及相关服务</a></li>
-                        <li><a href="#">BZ28/34项目-电解铜铝装置及相关服务</a></li>
-                        <li><a href="#">锦州25-1项目 电解铜铝装置置</a></li>
+                        <li><a href="javascript:void(0)">垦利10-1项目-电解铜铝装置及相关服务</a></li>
+                        <li><a href="javascript:void(0)">BZ28/34项目-电解铜铝装置及相关服务</a></li>
+                        <li><a href="javascript:void(0)">锦州25-1项目 电解铜铝装置置</a></li>
 
                     </ul>
                 </li>
-                <li><a href="#">2013年</a>
+                <li><a href="javascript:void(0)">2013年</a>
                     <ul>
-                        <li><a href="#">QHD32-6油田综合调整项目</a></li>
-                        <li><a href="#">恩平油田群项目</a></li>
-                        <li><a href="#">锦州9-3项目</a></li>
-                        <li><a href="#">Badan Usaha Tetap Offshore Oil Engineering Co., LTD (BUT COOEC)</a></li>
-                        <li><a href="#">八角亭铜铝电解装置年检项目</a></li>
-                        <li><a href="#">绥中36-1二期调整项目</a></li>
+                        <li><a href="javascript:void(0)">QHD32-6油田综合调整项目</a></li>
+                        <li><a href="javascript:void(0)">恩平油田群项目</a></li>
+                        <li><a href="javascript:void(0)">锦州9-3项目</a></li>
+                        <li><a href="javascript:void(0)">Badan Usaha Tetap Offshore Oil Engineering Co., LTD (BUT COOEC)</a></li>
+                        <li><a href="javascript:void(0)">八角亭铜铝电解装置年检项目</a></li>
+                        <li><a href="javascript:void(0)">绥中36-1二期调整项目</a></li>
                     </ul>
                 </li>
 

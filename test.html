@@ -1,8 +1,35 @@
-<table>
+<!DOCTYPE html>
+<html>
 
-    <tr>
-       <td>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
 
-       </td>
-    </tr>
-</table>
+        })
+        function test(item){
+            $("#test").attr("onclick","");
+
+            var handler= function () {
+                alert(this.id);
+            };
+            item.addEventListener("click", handler, false);
+        }
+        function test2(){
+            $("#test").bind("click",function(){
+                alert("ttt")
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+<div style="width: 200px;height: 600px;background: #1061b0">
+    <div style="height: 30px;border-bottom: 1px solid #0c447b"></div>
+    <div style="height: 30px;border-top: 1px solid #4d89c3"></div>
+</div>
+
+</body>
+</html>

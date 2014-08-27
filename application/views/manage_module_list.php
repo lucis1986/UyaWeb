@@ -98,7 +98,7 @@
 </script>
 <div style="margin-left:200px;    min-height: 600px; min-width: 700px; background:#ccc; padding:0">
     <div>
-        <a href="#" onclick="add_new()">Add New</a>
+        <a href="javascript:void(0)" onclick="add_new()">Add New</a>
     </div>
     <ul id="module_content" style="float: left">
         <?php foreach ($query as $row): ?>

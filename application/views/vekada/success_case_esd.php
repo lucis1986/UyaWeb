@@ -74,7 +74,7 @@
             <div class="call-to-action">
                 <h4>天津开发区威克达科技发展有限公司.</h4>
                 <p>以精湛的技术和服务，保障生产安全、提升生产效率、降低成本</p>
-                <a href="#" class="button branded big">联系我们</a>
+                <a href="javascript:void(0)" class="button branded big">联系我们</a>
             </div>
 
             <style type='text/css'>
@@ -115,16 +115,16 @@
             <div class="widget menu">
                 <h3>成功案例</h3>
                 <ul>
-                    <li><a href="#">1</a>
+                    <li><a href="javascript:void(0)">1</a>
                         <ul>
-                            <li><a href="#">中油国际乍得炼油厂SCADA项目</a></li>
-                            <li><a href="#">渤西处理厂丙烷机控制系统</a></li>
-                            <li><a href="#">BZ34 4WP无人平台控制系统</a></li>
+                            <li><a href="javascript:void(0)">中油国际乍得炼油厂SCADA项目</a></li>
+                            <li><a href="javascript:void(0)">渤西处理厂丙烷机控制系统</a></li>
+                            <li><a href="javascript:void(0)">BZ34 4WP无人平台控制系统</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">2</a>
+                    <li><a href="javascript:void(0)">2</a>
                         <ul>
-                            <li><a href="#">JZ9-3W DRPW&GCP中控改造</a></li>                           
+                            <li><a href="javascript:void(0)">JZ9-3W DRPW&GCP中控改造</a></li>
                         </ul>
                     </li>
                   <!--  <li><a href="portfolio.html">Portfolio</a></li>

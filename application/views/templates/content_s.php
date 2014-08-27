@@ -14,7 +14,7 @@
                     </div>
                     <div>
                         <img class="img_c" src="images/milkpowder.png">
-                        <a class="body_link" href="#"><p class="body_c">随着生产管理水平的不断提高，远程
+                        <a class="body_link" href="javascript:void(0)"><p class="body_c">随着生产管理水平的不断提高，远程
                             实时监控得到了广泛的应用，也越来
                             越成熟，而且正朝着网络化、智能化
                             的方向发展。我们提供的该软件为天津威克达科技自主开发，是一套完整的工业控...</p></a>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="body_panel">
                         <img class="img_c" src="images/milkpowder.png">
-                        <a class="body_link" href="#"><p class="body_c">随着生产管理水平的不断提高，远程
+                        <a class="body_link" href="javascript:void(0)"><p class="body_c">随着生产管理水平的不断提高，远程
                             实时监控得到了广泛的应用，也越来
                             越成熟，而且正朝着网络化、智能化
                             的方向发展。我们提供的该软件为天津威克达科技自主开发，是一套完整的工业控...</p></a>
@@ -42,7 +42,7 @@
                     </div>
                     <div>
                         <img class="img_c" src="images/milkpowder.png">
-                        <a class="body_link" href="#"><p class="body_c">随着生产管理水平的不断提高，远程
+                        <a class="body_link" href="javascript:void(0)"><p class="body_c">随着生产管理水平的不断提高，远程
                             实时监控得到了广泛的应用，也越来
                             越成熟，而且正朝着网络化、智能化
                             的方向发展。我们提供的该软件为天津威克达科技自主开发，是一套完整的工业控...</p></a>
@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <img class="img_c" src="images/milkpowder.png">
-                        <a class="body_link" href="#"><p class="body_c">随着生产管理水平的不断提高，远程
+                        <a class="body_link" href="javascript:void(0)"><p class="body_c">随着生产管理水平的不断提高，远程
                             实时监控得到了广泛的应用，也越来
                             越成熟，而且正朝着网络化、智能化
                             的方向发展。我们提供的该软件为天津威克达科技自主开发，是一套完整的工业控...</p></a>
@@ -75,7 +75,7 @@
                     </div>
                     <div>
                         <img class="img_c" src="images/milkpowder.png">
-                        <a class="body_link" href="#"><p class="body_c">随着生产管理水平的不断提高，远程
+                        <a class="body_link" href="javascript:void(0)"><p class="body_c">随着生产管理水平的不断提高，远程
                             实时监控得到了广泛的应用，也越来
                             越成熟，而且正朝着网络化、智能化
                             的方向发展。我们提供的该软件为天津威克达科技自主开发，是一套完整的工业控...</p></a>
@@ -89,7 +89,7 @@
                     </div>
                     <div>
                         <img class="img_c" src="images/milkpowder.png">
-                        <a class="body_link" href="#"><p class="body_c">随着生产管理水平的不断提高，远程
+                        <a class="body_link" href="javascript:void(0)"><p class="body_c">随着生产管理水平的不断提高，远程
                             实时监控得到了广泛的应用，也越来
                             越成熟，而且正朝着网络化、智能化
                             的方向发展。我们提供的该软件为天津威克达科技自主开发，是一套完整的工业控...</p></a>

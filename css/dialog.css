@@ -1,14 +1,13 @@
 .dialog{
     position: fixed;
     background: white;
-    visibility: hidden;
+    display: none;
     overflow: visible;
     z-index: 1000;
 }
 .dialog_title_panel{
     background: url("/images/manage/dialog_title_bg.png") repeat-x;
-    height: 38px;
-    position: relative;
+
     cursor:move;
 }
 .dialog_title{

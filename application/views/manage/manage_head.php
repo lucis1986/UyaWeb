@@ -45,7 +45,7 @@
 </head>
 <body>
 <div id="mask"
-     style="background: black;position: fixed; opacity: 0.3; top:0;left:0;display: none; width:9999px;height: 9999px;z-index: 999">
+     style="background: black;position: fixed; opacity: 0.3; filter:alpha(opacity=30);top:0;left:0;display: none; width:9999px;height: 9999px;z-index: 999">
 </div>
 <div id="head_area">
     <div id="top_ribbon1">

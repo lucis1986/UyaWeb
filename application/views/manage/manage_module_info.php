@@ -3,8 +3,8 @@
         <tr>
             <td>
                 <div class="op_panel">
-                    <a href="#" title="添加" class="add_btn op_btn" onclick="show_add_panel()"></a>
-                    <a href="#" title="编辑" class="edit_btn op_btn" onclick="edit(this)"></a>
+                    <a href="javascript:void(0)" title="添加" class="add_btn op_btn" onclick="show_add_panel()"></a>
+                    <a href="javascript:void(0)" title="编辑" class="edit_btn op_btn" onclick="edit(this)"></a>
                 </div>
             </td>
             <td style="width: 100%">
@@ -124,11 +124,9 @@
             dialog_show("#op_panel")
         }
         function edit(item) {
-            $(item).removeAttr("onclick");
-            $(item).unbind('click').bind('click', function () {
-                cancel(item);
-            })
-            $(item).after('<a href="#" title="删除" class="remove_btn op_btn" onclick="pre_remove()"></a>');
+            $(item).after('<a href="javascript:void(0)" title="删除" class="remove_btn op_btn" onclick="pre_remove()"></a>');
+            $(item).after('<a href="javascript:void(0)" title="取消" class="back_btn op_btn" onclick="cancel(this)"></a>');
+            $(item).remove();
             $("#entry_list li").each(function () {
                 $(this).append("<input class='extra' type='checkbox'  style='display: none'/>")
                 $(this).append("<div class='checkbox extra' onclick='checked_change(this)'></div>")

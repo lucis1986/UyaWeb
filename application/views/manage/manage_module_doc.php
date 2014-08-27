@@ -219,12 +219,12 @@
     }
 
     $(function () {
-        div_center("module_op_panel");
-        div_center("delete_confirm_panel");
-        onWindowResize.add(function () {
-            div_center("module_op_panel");
-            div_center("delete_confirm_panel");
-        });
+//        div_center("module_op_panel");
+//        div_center("delete_confirm_panel");
+//        onWindowResize.add(function () {
+//            div_center("module_op_panel");
+//            div_center("delete_confirm_panel");
+//        });
         zTreeObj = $.fn.zTree.init($("#doc_tree"), setting);
 
         upload_set()
@@ -321,10 +321,6 @@
             return false;
         }
     }
-    function dialog_close() {
-        $('#module_op_panel').css('display', "none");
-        $('#delete_confirm_panel').css('display', "none");
-        $('#mask').css('display', 'none');
-    }
+
 </script>
 </td>

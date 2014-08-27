@@ -18,8 +18,6 @@ $(function(){
     $("button").mousedown(function(){
         alert("ttt");
     })
-
-    dialog_center(".dialog");
     onWindowResize.add(function () {
         dialog_center(".dialog");
     });
@@ -67,29 +65,41 @@ function dialog_center(class_name){
     })
 }
 function dialog_close() {
-    dialog_center('.dialog');
-    $('.dialog').css('visibility', 'hidden');
+    $('.dialog').hide()
     $("#mask").hide();
 }
-function dialog_show(id){
-    $(id).css("visibility","visible");
+function dialog_show(id,callback){
+    $("#"+id).show();
     $("#mask").show();
+    if (callback){
+        callback();
+    }
+    div_center(document.getElementById(id));
 }
+
+//$.fn.dialog_show = function(id,callback){
+//    $("#"+id).show();
+//    $("#mask").show();
+//    if (callback){
+//        callback();
+//    }
+//    div_center(document.getElementById(id));
+//}
+
 function checked_change(item) {
     var checked_item = $(item).prev();
     if (!checked_item.prop("checked")) {
-        checked_item.prop("checked", true)
+        checked_item.prop("checked", true);
         $(item).addClass("checked")
     } else {
-        checked_item.prop("checked", false)
+        checked_item.prop("checked", false);
         $(item).removeClass("checked")
     }
 }
 function cancel(item) {
-    $(item).unbind('click').bind('click', function () {
-        edit(item);
-    })
     $(item).next().remove();
+    $(item).after('<a href="#" title="编辑" class="edit_btn op_btn" onclick="edit(this)"></a>');
+    $(item).remove();
     $("#entry_list li").each(function () {
         $(this).find(".extra").remove();
     })
