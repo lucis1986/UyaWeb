@@ -20,7 +20,7 @@
             </div>
             <!-- /text -->
             <?php if(isset($product)):?>
-                <div class="widget menu">
+                <div class="widget menu top_fix">
                 <h3><a href="/Product/Index/<?=$product->id?>"><?=$product->title?></a></h3>
                 <?php if(isset($query2)&&count($query2)>0):?>
 

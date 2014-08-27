@@ -17,12 +17,8 @@ ul{
 a{
     text-decoration: none;
 }
-a:link{
-    color: inherit;
-}
-a:visited{
-    color: inherit;
-}
+
+
 #topright_nav li {
     float: left;
     list-style: none;

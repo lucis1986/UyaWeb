@@ -11,7 +11,7 @@
         <p>石油 化工 天然气, 医药 快速消费品 污水处理. 汽车 钢铁 水泥. 造纸 </p>
     </div>
     <?php if(isset($query2)&&count($query2)>0):?>
-        <div class="widget menu">
+        <div class="widget menu top_fix">
             <h3>成功案例</h3>
             <ul>
                 <?php foreach($query2 as $row):?>

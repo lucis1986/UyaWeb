@@ -129,7 +129,7 @@ class Management extends CI_Controller
         $this->load->view('manage/manage_module_left.php');
         switch ($id) {
             case 1:
-                $this->load->view('manage/manage_main_page_content1.php');
+                $this->load->view('manage/manage_main_page_content3.php');
                 break;
             case 2:
                 $this->load->view('manage/manage_main_page_content2.php');
@@ -151,10 +151,10 @@ class Management extends CI_Controller
 
         if (isset($id) && isset($module_id)) {
             $this->load->model("InfoModule");
-            $query = $this->InfoModule->get_module_type($module_id);
+            $query_type = $this->InfoModule->get_module_type($module_id);
             $module = $this->InfoModule->get_from_id($module_id);
-            if (count($query) > 0 && !empty($module)) {
-                $model = ucfirst(strtolower($query[0]->flag)) . "Model";
+            if (count($query_type) > 0 && !empty($module)) {
+                $model = ucfirst(strtolower($query_type[0]->flag)) . "Model";
                 $this->load->model($model);
                 $this->$model->module_id = $module_id;
                 $query = $this->$model->get_from_id($id);
@@ -168,7 +168,7 @@ class Management extends CI_Controller
 //                    $this->load->view('manage/manage_foot.php', $data);
                     $data["types"] = $this->GetTypes();
                     $data["current_top_nav"] = "Module";
-                    $data["current_left_nav"] = $query[0]->id;
+                    $data["current_left_nav"] = $query_type[0]->id;
                     $data["module"] = $module;
                     $this->load->view('manage/manage_head', $data);
                     $this->load->view('manage/manage_top');
@@ -292,14 +292,20 @@ class Management extends CI_Controller
             $this->load->library('pagination');
             $config["base_url"] = "/management/modulemanage/" . $module_id . "/";
             $config['uri_segment'] = 4;
-            $config['per_page'] = 20;
+            $config['per_page'] = 15;
             $config['num_links'] = 5;
             $config['use_page_numbers'] = TRUE;
+            $config['full_tag_open'] = '<p>';
+            $config['full_tag_close'] = '</p>';
+
             $config['first_link'] = '首页';
             $config['last_link'] = '末页';
+            $config['prev_link'] = '上一页';
+            $config['next_link'] = '下一页';
+
             $config['total_rows'] = $this->$model->get_num();
             $start_item_num = $config['per_page'] * ($page_num - 1);
-            $data['query'] = $this->$model->get_items_by_start_num($start_item_num, 20);
+            $data['query'] = $this->$model->get_items_by_start_num($start_item_num, 15);
             $data["module"] = $query_module;
             $data["types"] = $this->GetTypes();
             $data["current_top_nav"] = "Module";

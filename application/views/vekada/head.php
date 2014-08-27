@@ -1,56 +1,73 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>
-        <?php if(isset($title)):?>
-            <?=$title?>
-        <?php else:?>
+        <?php if (isset($title)): ?>
+            <?= $title ?>
+        <?php else: ?>
             威克达科技
-        <?php endif;?>
+        <?php endif; ?>
     </title>
 
-    <link rel="stylesheet" href="/tone/vekada/css/style.css" />
+    <link rel="stylesheet" href="/tone/vekada/css/style.css"/>
     <!--[if IE 7]>
     <link rel="stylesheet" href="/tone/vekada/css/font-awesome-ie7.css">
     <![endif]-->
 
-    <link href="/tone/vekada/styles/global.css"  rel="stylesheet" type="text/css" />
-    <link href="/tone/vekada/styles/index.css"  rel="stylesheet" type="text/css" />
+    <link href="/tone/vekada/styles/global.css" rel="stylesheet" type="text/css"/>
+    <link href="/tone/vekada/styles/index.css" rel="stylesheet" type="text/css"/>
 
     <script>window.jQuery || document.write('<script src="/tone/vekada/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
     <script src="/tone/vekada/js/libs/modernizr-2.5.3.min.js"></script>
-
 
 
     <script src="/tone/vekada/js/plugins.js?v=1"></script>
     <script src="/tone/vekada/js/script.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#layerslider').layerSlider({
-                skinsPath : '/tone/vekada/css/layerslider/',
-                skin : 'minimal'
+                skinsPath: '/tone/vekada/css/layerslider/',
+                skin: 'minimal'
             });
+
+            var navH = $(".top_fix").offset().top;
+            var width=$(".top_fix").width();
+            $(window).scroll(function (){
+                var scroH = $(this).scrollTop();
+                if (scroH >= navH) {
+                    $(".top_fix").css({"position": "fixed", "top": 0,"width":width});
+                } else if (scroH < navH) {
+                    $(".top_fix").css({"position": "static","width":"auto"});
+                }
+            })
         });
     </script>
 
 </head>
 
 <body>
-<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a
+    different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>
+    to experience this site.</p><![endif]-->
 
 <header>
     <div class="header-notice">
         <div class="container">
             <div class="sixteen columns">
                 <p align="right">Tel: 022-59812228 Fax: 022-59812229 | Mail: info@vekada.com</p>
+
                 <div class="arrow"></div>
             </div>
         </div>
@@ -64,7 +81,7 @@
 
         <nav class="menu">
             <ul>
-                <li class="current-menu-item"><a href="/index.php">Home</a>            </li>
+                <li class="current-menu-item"><a href="/index.php">Home</a></li>
                 <li><a href="#">公司介绍</a>
                     <ul>
                         <li><a href="/Company/Intro">公司简介</a></li>
@@ -75,7 +92,7 @@
                 <li><a href="#">我们的产品</a>
                     <ul>
 
-                        <li><a href="/Product/Clorox">次氯酸钠装置</a></li>
+                        <li><a href="/Product/Index/2">次氯酸钠装置</a></li>
                         <li><a href="/Product/ElectrolysisOfCopperAndAluminum">电解铜铝装置</a></li>
                         <li><a href="/Product/DomesticSewage">生活污水处理系统</a></li>
                         <li><a href="/Product/SpecialTechnology">专有技术</a></li>
