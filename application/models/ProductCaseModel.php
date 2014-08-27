@@ -43,7 +43,41 @@ class ProductCaseModel extends CI_Model
 
     function get_max_id()
     {
-        $query = $this->db->query("select max(id) as id from product");
+        $query = $this->db->query("select max(id) as id from product_case");
         return $query->row();
+    }
+
+
+    function insert_entry()
+    {
+        $data = array(
+
+            'title'=> $_POST['title'],
+            'author'=>$_POST['author'],
+            'created'=>date("Y-m-d H:i:s"),
+            'body'=>$_POST['body'],
+            '$product_id'=>$_POST['$product_id']
+
+        );
+        $this->db->insert('product_case', $data);
+
+    }
+
+    function update_entry($id){
+        $data=array(
+            'title'=> $_POST['title'],
+            'author'=>$_POST['author'],
+            'modified'=>date("Y-m-d H:i:s"),
+            'body'=>$_POST['body'],
+            '$product_id'=>$_POST['$product_id']
+
+        );
+        $this->db->update('product_case', $data,array('id'=>$id));
+    }
+
+    function delete_entry($id)
+    {
+        $sql = "update product_case set deleted=1,modified='".date("Y-m-d H:i:s")."' where id in (".$id.") and deleted=0";
+        $this->db->query($sql);
     }
 } 
