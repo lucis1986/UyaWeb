@@ -61,7 +61,7 @@
             });
             if (remove_ids.length > 0) {
                 $("input[name='delete_ids']").val(remove_ids);
-                dialog_show("#delete_confirm_panel");
+                dialog_show("delete_confirm_panel");
             } else {
                 alert("所选为空！")
             }

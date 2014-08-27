@@ -184,7 +184,7 @@
         }
         function pre_remove(index) {
             $('#deleted_index').val(index);
-            dialog_show("#delete_confirm_panel")
+            dialog_show("delete_confirm_panel")
         }
         function get_case_index() {
             var tr_count = $('#case tr').length;

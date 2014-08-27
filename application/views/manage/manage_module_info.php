@@ -96,7 +96,7 @@
             $('select[name="template"]').val(first_select.val());
             $('#template_description').html(first_select.attr('title'))
             $('#op_title').text("添加信息发布");
-            dialog_show("#op_panel")
+            dialog_show("op_panel")
         }
         function show_edit_panel(item) {
             except_self = true;
@@ -121,7 +121,7 @@
                     return;
                 }
             });
-            dialog_show("#op_panel")
+            dialog_show("op_panel")
         }
         function edit(item) {
             $(item).after('<a href="javascript:void(0)" title="删除" class="remove_btn op_btn" onclick="pre_remove()"></a>');
@@ -164,7 +164,7 @@
             });
             if (remove_ids.length > 0) {
                 $("input[name='delete_ids']").val(remove_ids);
-                dialog_show("#delete_confirm_panel");
+                dialog_show("delete_confirm_panel");
             } else {
                 alert("所选为空！")
             }
