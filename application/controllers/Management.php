@@ -92,6 +92,11 @@ class Management extends CI_Controller
         $data["result"]= $this->ProductModel->get_all();
     }
 
+    private function LoadCase(&$data)
+    {
+        $this->load->model('ProductCaseModel');
+        $data["result"]= $this->ProductCaseModel->get_all();
+    }
 
 
     public function SinglePage($id = 1)

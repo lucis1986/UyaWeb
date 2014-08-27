@@ -1,53 +1,61 @@
 <?php
-
+session_start();
 /**
  * Created by PhpStorm.
  * User: Saphir
  * Date: 14-7-28
  * Time: 上午9:34
  */
-class MY_Controller extends CI_Controller
+class mController extends CI_Controller
 {
-    var $check = false;
-
     function __construct()
     {
         parent::__construct();
-        if ($this->check) {
+       $this->test1();
+
+    }
+    function test1()
+    {
+        echo "test";
+    }
+}
+class MY_Controllers extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
+
             $this->CheckLogin();
-        }
     }
 
     public function CheckLogin()
     {
-        $username = trim($_POST['username']);
-        $pwd = md5($_POST['pwd']);
-        $errmsg = '';
-        if (!empty($username)) {
 
-            $sql = "select * from user where uname='$username' and pwd='$pwd'";
+        if(!isset($_SESSION['uid'])||!isset($_SESSION['ip']))
+        {
+            $this->load->view('load');
+        }
+        else
+        {
+            $username=$_SESSION['uid'];
+            $lastip= $_SERVER['REMOTE_ADDR'];
+            $sql = "select * from user where uname='$username' and lastip='$lastip'";
             $rs =$this->db->query($sql);
             if ($rs && $rs->num_rows > 0) {
-
-                $_SESSION['uid'] = $username;
-                $errmsg = "WELCOME". $_SESSION['uid'];
-                echo $errmsg;
-
-                // 更新用户登录信息 
-                $ip = $_SERVER['REMOTE_ADDR'];
-                $sql= "UPDATE user SET logintimes = logintimes + 1,";
-                $sql.= "lasttime=now(), lastip='$ip'";
-                $sql.= " WHERE uname='$username'";
-                $this->db->query($sql);
-            } else {
-                $errmsg = "WROING USERNAME OR PASSSWORD";
-                echo $errmsg;
+            echo"WELCOME ".$_SESSION['uid'];
             }
-            $this->db->close();
+            else
+            {
+                echo $_SESSION['uid'];
+                echo $_SESSION['ip'];
 
-        } else {
-            $errmsg = '数据输入不完整';
+                echo "用户在其他地方登陆，如不是本人操作请修改密码";
+                $this->load->view('load');
+            }
         }
 
     }
+
+
+
 } 
