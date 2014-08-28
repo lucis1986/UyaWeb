@@ -1,84 +1,114 @@
-<title>UserLogin</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
-<script type="application/javascript" language="JavaScript">
-    function doCheck() {
-        var flag = true;
-        if (document.frmLogin.username.value == "") {
-            alert('请输入你的用户名！');
-            flag = false;
-        }
-        if (document.frmLogin.password.value == "") {
-            alert('请输入你的密码！');
-            flag = false;
-        }
-        if (document.frmLogin.yzm.value == "") {
-            alert('请输入验证码！');
-            flag = false;
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>后台管理平台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/window_resize.js"></script>
+    <script type="text/javascript" src="/js/div_center.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <link rel="stylesheet" href="/css/manage.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/dialog.css" type="text/css"/>
+    <style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+        #left_area {
+            text-align: center;
         }
 
-        $.ajax({
-            method: 'get',
-            async: false,
-            url: "/login/GetSession",
-            success: function (data) {
-                alert(data);
-                alert($("#yzm").val());
-                if (data.toLowerCase() != $("#yzm").val().toLowerCase()) {
+        #right_area {
+            text-align: left;
+            width: 100%;
+        }
+        #edit_panel{
+            margin-top: 10px;
+        }
 
-                    alert("验证码错误");
-                    flag = false;
+    </style>
+</head>
+<body>
+<div id="mask"
+     style="background: black;position: fixed; opacity: 0.3; top:0;left:0;display: none; width:9999px;height: 9999px;z-index: 999">
+</div>
+<div id="head_area">
+    <div id="top_ribbon1">
+        <span id="user_info">欢迎，Admin |  注销</span>
+        <div style="clear: both"></div>
+    </div>
+    <div id="top_ribbon2">
+        <a id="logo_link" href="/Management/Index"></a>
+        <ul id="top_nav">
+            <li><a id="MainPage" href="/Management/MainPage">首页管理</a></li>
+            <li><a id="Module" href="/Management/Module">模块管理</a></li>
+            <li><a id="Authority" href="/Management/Authority">权限管理</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div>
+</div>
+<table id="core_area">
+    <tr>
+
+
+        <td id="right_area">
+
+            <form id="submit_form" method="post" action="/productcase/save/8">
+                <table>
+                    <tr>
+                        <td><input type="hidden" name="id" value="8"/>
+                            <input type="text" name="title" value="要"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><textarea name="body" id="body" rows="10" cols="80">
+                            枯                    </textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="author" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="created" value="2014-08-20 10:14:57"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <input name="test" type="button" value="test" onclick="save()"/>
+                            <input name="cancel" type="button" value="取消" onclick="test()"/>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </form>
+            <link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css"/>
+            <script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+            <script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+            <script type="text/javascript">
+                var editor;
+                KindEditor.ready(function (K) {
+                    editor = K.create('textarea[name="body"]', {
+                        allowFileManager: true,
+                        width: '95%',
+                        height: '500px'
+                    });
+                });
+                function save() {
+                    $("#body").val(editor.html());
+                    $('#submit_form').submit();
                 }
-
-            }
-        });
-
-
-        return flag;
-    }
-    function test() {
-        var t = doCheck();
-    }
-    function create_code() {
-        document.getElementById('code').src = 'VerifyCode.php?' + Math.random() * 10000;
-    }
-
-</script>
-
-
-<form name="frmLogin" method="post" action="/login/submit" onSubmit="return doCheck();">
-    <table border="0" cellpadding="8" align="center">
-        <tr>
-            <td colspan="2" align="center" class="alert"></td>
-        </tr>
-        <tr>
-            <td>用户名:</td>
-            <td><input name="username" type="text" id="username" class="textinput"/></td>
-        </tr>
-        <tr>
-            <td>密码:</td>
-            <td><input name="pwd" type="password" id="password" class="textinput"/></td>
-        </tr>
-        <tr>
-            <td>验证码:</td>
-            <td><input name="yzm" type="text" id="yzm" class="textinput"/>
-
-                <img src="/ZTest/CCode" id="Ccode" onclick="create_code()"/>
-                <img src="/VerifyCode.php" id="code" onclick="create_code()"/>
-
-                <input type="button" id="updatecode" onclick="create_code()" value="看不清，换一张">
-                <!--                <img src="/images/update.jpg" id="updatecode" onclick="create_code()" style="height: 20px;width: 20px"/>-->
-
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2" align="center">
-
-                <input type="submit" class="btn" value="登陆">&nbsp;&nbsp;
-                <input type="reset" class="btn" value="重置">&nbsp;&nbsp;
-                <!--                <input type="button" class="btn" value="找回密码" onclick="//login//FindPwd" >-->
-            </td>
-        </tr>
-    </table>
-</form>
+            </script>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
