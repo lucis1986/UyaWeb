@@ -1,32 +1,29 @@
-<td id="right_area">
 
-    <table>
-        <tr>
-            <td> <input type="hidden" name="id" value="<?= $query->id ?>"/>
-                <input type="text" name="title" value="<?= mb_strimwidth($row->title, 0, 50, "...", "utf8") ?>"/>
-                </td>
-        </tr>
-        <tr>
-            <td>    <textarea name="body" id="body" rows="10" cols="80">
-                    <?= $row->body ?>
-                </textarea></td>
-        </tr>
-        <tr>
-            <td><input type="text" name="author" value="<?= $row->author ?>"/></td>
-        </tr>
-        <tr>
-            <td><input type="text" name="created" value="<?= $row->created ?>"/></td>
-        </tr>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+    <script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
 
-        <tr>
-            <td>
+
+        <form  id="submit_form1" name="submit_form1" method="post" action="/ProductCase/save/<?= $id ?>">
+
+                <input type="hidden" name="id" value="<?= $id ?>"/><br>
+                    <input type="text" name="title" value="<?= $title ?>"/>
+
+              <textarea name="body" id="body" rows="10" cols="80">
+                        <?= $body ?>
+                    </textarea>
+            <input type="text" name="author" value="<?= $author ?>"/><br>
+            <input type="text" name="created" value="<?= $created ?>"/><br>
+            <a id="a" name="a" onclick="save()" href="#">aa</a>
+
+
                 <input id="save" name="save" type="button" value="保存" onclick="save()"/>
                 <input id="cancel" name="cancel" type="button" value="取消"/>
-            </td>
-        </tr>
 
-    </table>
-    <script>
+
+
+    <script type="text/javascript">
         var editor;
         KindEditor.ready(function (K) {
             editor = K.create('textarea[name="body"]', {
@@ -36,8 +33,12 @@
             });
         });
         function save() {
+            alert("dd");
+            alert($("#body").text);
             $("#body").val(editor.html());
-            $('#submit_form').submit();
+            $('#submit_form1').submit();
         }
     </script>
-</td>
+
+        </form>
+

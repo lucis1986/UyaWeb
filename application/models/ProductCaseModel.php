@@ -56,7 +56,7 @@ class ProductCaseModel extends CI_Model
             'author'=>$_POST['author'],
             'created'=>date("Y-m-d H:i:s"),
             'body'=>$_POST['body'],
-            '$product_id'=>$_POST['$product_id']
+
 
         );
         $this->db->insert('product_case', $data);
@@ -68,8 +68,8 @@ class ProductCaseModel extends CI_Model
             'title'=> $_POST['title'],
             'author'=>$_POST['author'],
             'modified'=>date("Y-m-d H:i:s"),
-            'body'=>$_POST['body'],
-            '$product_id'=>$_POST['$product_id']
+            'body'=>$_POST['body']
+
 
         );
         $this->db->update('product_case', $data,array('id'=>$id));

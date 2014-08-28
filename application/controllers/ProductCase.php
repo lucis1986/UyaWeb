@@ -10,7 +10,7 @@ class ProductCase extends CI_Controller
 {
     function Index(){
         $this->load->model("ProductCaseModel");
-        $data["query"]=$this->ProductCaseModel->get_all();
+        $query=$this->ProductCaseModel->get_all();
 //        if (!empty($data["query"])) {
 //            $data["title"]=$data["query"]->title;
 //            $product_id=$data["query"]->product_id;
@@ -18,24 +18,14 @@ class ProductCase extends CI_Controller
 //
 //            load_template($this, "product_case_template", $data);
 //        }
-        $this->load->view("/manage/mannage_case_list");
+        $this->load->view("/manage/manage_module_case",$query);
     }
 
     function CaseInfo($id)
     {
         $this->load->model("ProductCaseModel");
-        $data["query"]=$this->ProductCaseModel->get_from_id($id);
-//        if (!empty($data["query"])) {
-//            $data["title"]=$data["query"]->title;
-//            $data["body"]=$data["query"]->body;
-//            $data["created"]=$data["query"]->created;
-//            $data["created"]=$data["query"]->created;
-//            $product_id=$data["query"]->product_id;
-//            $this->load->Model("ProductCaseModel");
-//
-//            load_template($this, "product_case_template", $data);
-//        }
-        $this->load->view("/manage/mannage_case_view");
+        $query=$this->ProductCaseModel->get_from_id($id);
+        $this->load->view("/manage/manage_case_view",$query);
     }
 
 
@@ -43,43 +33,26 @@ class ProductCase extends CI_Controller
         $this->load->model("ProductCaseModel");
         $data["query"]=$this->ProductCaseModel->get_from_id($id);
         if(!empty($data["query"])){
-            $this->load->model("Type");
-            $product_type=$this->Type->get_from_flag("product");
-            if(empty($product_type)){
-                exit();
-            }
-            $data["types"] = $this->GetTypes();
-            $data["current_top_nav"] = "Module";
-            $data["current_left_nav"] =$product_type->id;
-            $data["pre_url"] = "/management/Module/" . $product_type->id;;
-            $this->load->model("ProductCaseModel");
-            $data["query2"]=$this->ProductCaseModel->get_from_product_id($id);
-            $this->load->view('manage/manage_head', $data);
-
-            $this->load->view('manage/manage_case_edit');
-
+                    $data["id"]=$data["query"]->id;
+            $data["title"]=$data["query"]->title;
+            $data["body"]=$data["query"]->body;
+            $data["author"]=$data["query"]->author;
+            $data["created"]=$data["query"]->created;
+            $this->load->view('manage/manage_case_edit',$data);
         }
 
     }
 
+function aa()
+{
+    echo "aa";
+}
 
-
-    function SaveAdd(){
-        $this->load->model("ProductCaseModel");
-        $this->ProductCaseModel->insert_entry();
-//        $this->load->helper('url');
-//        $this->load->Model("Type");
-//        $product_type=$this->Type->get_from_flag("product");
-//        redirect("/Management/Module/".$product_type->id);
-
-    }
-    function SaveEdit($id){
+    function Save($id){
         $this->load->model("ProductCaseModel");
         $this->ProductCaseModel->update_entry($id);
-//        $this->load->helper('url');
-//        $this->load->Model("Type");
-//        $product_type=$this->Type->get_from_flag("product");
-//        redirect("/Management/Module/".$product_type->id);
+
+        redirect("/Management/Module/2");
     }
     function Delete($id){
         $this->load->model("ProductCaseModel");

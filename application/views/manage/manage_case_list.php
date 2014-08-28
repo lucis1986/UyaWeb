@@ -20,9 +20,9 @@
                                     <td style="width: 100%"
                                         title="<?= $row->title ?>"><?= mb_strimwidth($row->title, 0, 50, "...", "utf8") ?></td>
                                     <td><?php echo date("Y-m-d", strtotime($row->modified)) ?></td>
-                                    <td><a href="/productcase/edit/<?= $row->id ?>/<?= $row->id ?>">编辑</a></td>
+                                    <td><a href="/productcase/edit/<?= $row->id ?>">编辑</a></td>
                                     <td><a target="_blank" href="/productcase/caseinfo/<?= $row->id ?>">查看</a></td>
-                                    <td><a href="/productcase/delete/<?= $row->id ?>/<?= $row->id ?>">删除</a></td>
+                                    <td><a href="/productcase/delete/<?= $row->id ?>">删除</a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </table>
