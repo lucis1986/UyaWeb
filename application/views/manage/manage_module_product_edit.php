@@ -56,6 +56,7 @@
             </td>
         </tr>
     </table>
+    <input name="remove_case_ids" type="hidden"/>
 </form>
 <div class="dialog" id="op_panel">
     <div class="dialog_title_panel">

@@ -2,16 +2,16 @@
 
     <table>
         <tr>
-            <td><?= mb_strimwidth($row->title, 0, 50, "...", "utf8") ?></td>
+            <td><?= mb_strimwidth($title, 0, 50, "...", "utf8") ?></td>
         </tr>
         <tr>
-            <td><?= $row->body ?></td>
+            <td><?= $body ?></td>
         </tr>
         <tr>
-            <td><?= $row->author ?></td>
+            <td><?= $author ?></td>
         </tr>
         <tr>
-            <td><?= $row->created ?></td>
+            <td><?= $created ?></td>
         </tr>
 
     </table>

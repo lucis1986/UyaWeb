@@ -90,12 +90,31 @@ class Management extends CI_Controller
     {
         $this->load->model('ProductModel');
         $data["result"]= $this->ProductModel->get_all();
+
     }
 
     private function LoadCase(&$data)
     {
+        $page_num=isset($this->uri->segments[4])?$this->uri->segments[4]:1;
+//        $this->load->model('ProductCaseModel');
+//        $data["result"]= $this->ProductCaseModel->get_all();//
+        $this->load->library('pagination');
+        $config["base_url"] = "/Management/Module/2";
+        $config['per_page'] = 5;
+        $config['num_links'] = 5;
+        $config['use_page_numbers'] = TRUE;
+        $config['uri_segment'] = 4;
+        $config['first_link'] = '首页';
+        $config['last_link'] = '末页';
+        $start_item_num = $config['per_page'] * ($page_num - 1);
         $this->load->model('ProductCaseModel');
-        $data["result"]= $this->ProductCaseModel->get_all();
+        $config["total_rows"]= $this->ProductCaseModel->get_num();
+//        $config['total_rows'] = $this->InfoModel->get_num();
+        $data['result'] = $this->ProductCaseModel->get_items_by_start_num($start_item_num, 5);
+//        $data['title'] = $this->module_title;
+//        $data['block_title'] = $this->module_title;
+        $this->pagination->initialize($config);
+
     }
 
 

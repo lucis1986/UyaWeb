@@ -7,7 +7,9 @@
  */
 class Type extends CI_Model {
 
-
+    var $id;
+    var $title;
+    var $flag;
     function __construct()
     {
         parent::__construct();

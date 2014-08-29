@@ -15,8 +15,20 @@ class ProductCaseModel extends CI_Model
 
     function get_all()
     {
+        $sql = "select  * from  product_case where deleted=0 order by created desc";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    function get_num(){
         $sql = "select  * from  product_case where deleted=0";
         $query = $this->db->query($sql);
+        return $query->num_rows;
+    }
+
+    function get_items_by_start_num($start=0,$num=20){
+        $sql = "select  * from product_case where  deleted=0 order by modified desc limit ? , ?";
+        $query = $this->db->query($sql,array($start,$num));
         return $query->result();
     }
 
@@ -56,6 +68,7 @@ class ProductCaseModel extends CI_Model
             'author'=>$_POST['author'],
             'created'=>date("Y-m-d H:i:s"),
             'body'=>$_POST['body'],
+            'product_id'=>$_POST['product_id']
 
 
         );
@@ -66,9 +79,11 @@ class ProductCaseModel extends CI_Model
     function update_entry($id){
         $data=array(
             'title'=> $_POST['title'],
-            'author'=>$_POST['author'],
+          //  'author'=>$_POST['author'],
             'modified'=>date("Y-m-d H:i:s"),
-            'body'=>$_POST['body']
+            'created'=>date("Y-m-d H:i:s"),
+            'body'=>$_POST['body'],
+            'product_id'=>$_POST['product_id']
 
 
         );
