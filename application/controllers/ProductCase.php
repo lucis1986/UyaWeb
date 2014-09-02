@@ -124,7 +124,6 @@ class ProductCase extends CI_Controller
         else
         {
             $this->ProductCaseModel->update_entry($id);
-//            echo "<script>alert('保存成功');</script>";
         }
         $this->load->model("Type");
         $data["query2"]=$this->Type->get_from_flag("case");
@@ -141,4 +140,9 @@ class ProductCase extends CI_Controller
         redirect("/Management/Module/".$data["query2"]->id);
     }
 
+    function IsExist($title)
+    {
+        $this->load->model("ProductCaseModel");
+        echo  $this->ProductCaseModel->is_exist($title);
+    }
 }

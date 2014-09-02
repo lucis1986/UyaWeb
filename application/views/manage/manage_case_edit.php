@@ -22,8 +22,8 @@
                             <form  id="submit_form1" name="submit_form1" method="post" action="/ProductCase/save/<?= $id ?>">
                                 <div style="text-align: left; margin-bottom: 20px;">
                                     <span class="yai_hei size1 color1">标题</span>
-                                    <input name="title" style="text-align: left;width:800px" type="text"
-                                           value="<?= $title ?>"/>
+                                    <input name="title" id="title" style="text-align: left;width:800px" type="text"
+                                           value="<?= $title ?>"  />
                                 </div>
                                 <input type="hidden" name="id" value="<?= $id ?>"/>
 <!--                                <input type="hidden" name="pre_url" value="--><?//= $pre_url ?><!--">-->
@@ -31,6 +31,7 @@
                                 <textarea name="body" id="body" rows="10" cols="80">
                                     <?= $body ?>
                                 </textarea>
+                                <br>
                                 <div style="text-align: left; margin-bottom: 20px;">
                                     <span class="yai_hei size1 color1">产品</span>
                                     <select id="product_id" name="product_id">
@@ -66,9 +67,48 @@
             });
         });
         function save() {
-            $("#body").val(editor.html());
-            $('#submit_form1').submit();
+
+            var title = $("#title").val();
+            if(title==""||title==null){
+                alert('标题不能为空');
+            }
+            else{
+                var id=$("#id").val();
+                //如果id==0，是新增，判断是否存在相同Title，存在不提交，不存在提交
+                //如果id<>0,是更新，提交
+                if(id==0||id==null)
+                {
+                    $.ajax({
+                        url: "/ProductCase/IsExist/"+title,
+                        type: 'GET',
+                        async: false,
+                        dataType:'text',
+                        success: function (data) {
+                            alert('111');
+                             if(data>0)
+                             {
+                                alert('已存在此标题');
+                             }
+                            else
+                             {
+                                 $("#body").val(editor.html());
+                                 $('#submit_form1').submit();
+                             }
+                        },
+                        error: function (e) {
+                            alert("发生错误！");
+                            return;
+                        }
+                    });
+                }
+                else
+                {
+                    $("#body").val(editor.html());
+                    $('#submit_form1').submit();
+                }
+            }
         }
+
     </script>
 
         </form>

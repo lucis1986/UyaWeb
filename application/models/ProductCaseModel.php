@@ -67,6 +67,7 @@ class ProductCaseModel extends CI_Model
             'title'=> $_POST['title'],
             'author'=>$_POST['author'],
             'created'=>date("Y-m-d H:i:s"),
+            'modified'=>date("Y-m-d H:i:s"),
             'body'=>$_POST['body'],
             'product_id'=>$_POST['product_id']
 
@@ -81,7 +82,6 @@ class ProductCaseModel extends CI_Model
             'title'=> $_POST['title'],
           //  'author'=>$_POST['author'],
             'modified'=>date("Y-m-d H:i:s"),
-            'created'=>date("Y-m-d H:i:s"),
             'body'=>$_POST['body'],
             'product_id'=>$_POST['product_id']
 
@@ -94,5 +94,12 @@ class ProductCaseModel extends CI_Model
     {
         $sql = "update product_case set deleted=1,modified='".date("Y-m-d H:i:s")."' where id in (".$id.") and deleted=0";
         $this->db->query($sql);
+    }
+
+    function  is_exist($title)
+    {
+        $sql="select * from product_case where deleted=0 and title =?";
+        $query= $this->db->query($sql, array($title));
+        return $query->num_rows();
     }
 } 
