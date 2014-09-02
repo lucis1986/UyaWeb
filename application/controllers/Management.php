@@ -100,7 +100,7 @@ class Management extends CI_Controller
 //        $data["result"]= $this->ProductCaseModel->get_all();//
         $this->load->library('pagination');
         $config["base_url"] = "/Management/Module/2";
-        $config['per_page'] = 5;
+        $config['per_page'] =15;
         $config['num_links'] = 5;
         $config['use_page_numbers'] = TRUE;
         $config['uri_segment'] = 4;
@@ -110,7 +110,7 @@ class Management extends CI_Controller
         $this->load->model('ProductCaseModel');
         $config["total_rows"]= $this->ProductCaseModel->get_num();
 //        $config['total_rows'] = $this->InfoModel->get_num();
-        $data['result'] = $this->ProductCaseModel->get_items_by_start_num($start_item_num, 5);
+        $data['result'] = $this->ProductCaseModel->get_items_by_start_num($start_item_num, 15);
 //        $data['title'] = $this->module_title;
 //        $data['block_title'] = $this->module_title;
         $this->pagination->initialize($config);

@@ -84,7 +84,6 @@
                         async: false,
                         dataType:'text',
                         success: function (data) {
-                            alert('111');
                              if(data>0)
                              {
                                 alert('已存在此标题');
