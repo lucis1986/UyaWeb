@@ -42,7 +42,7 @@
 
                                                 <?php foreach ($query3 as $row): ?>
 
-                                                  <option value="<?= $row->id ?>" <?php if ("<?= $product_id?>"=="<?= $row->id ?>"): ?>selected="selected"<?php endif; ?>><?= $row->title ?></option>
+                                                  <option value="<?= $row->id ?>" <?php if ($product_id== $row->id ): ?>selected="selected"<?php endif; ?>><?= $row->title ?></option>
 
                                                 <?php endforeach; ?>
 
