@@ -25,9 +25,10 @@
                                     <input name="title" id="title" style="text-align: left;width:800px" type="text"
                                            value="<?= $title ?>"  />
                                 </div>
-                                <input type="hidden" name="id" value="<?= $id ?>"/>
+                                <input type="hidden" name="id" id="id" value="<?= $id ?>"/>
+
 <!--                                <input type="hidden" name="pre_url" value="--><?//= $pre_url ?><!--">-->
-                                <input type="hidden" name="author" value="<?= $author ?>"/>
+                                <input type="hidden" name="author" id="author" value="<?= $author ?>"/>
                                 <textarea name="body" id="body" rows="10" cols="80">
                                     <?= $body ?>
                                 </textarea>
@@ -76,6 +77,7 @@
                 var id=$("#id").val();
                 //如果id==0，是新增，判断是否存在相同Title，存在不提交，不存在提交
                 //如果id<>0,是更新，提交
+
                 if(id==0||id==null)
                 {
                     $.ajax({
