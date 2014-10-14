@@ -72,7 +72,7 @@ class InfoModule extends CI_Model {
 
     function delete_entry()
     {
-        $sql = "update module set deleted=1,flag=CONCAT(flag,'___".date('Y-m-d H:i:s',time())."') where id in (".$_POST["module_ids"].") and deleted=0";
+        $sql = "update module set deleted=1,flag=CONCAT(flag,'___".date('Y-m-d H:i:s',time())."') where id in (".$_POST["delete_ids"].") and deleted=0";
         $this->db->query($sql);
     }
 

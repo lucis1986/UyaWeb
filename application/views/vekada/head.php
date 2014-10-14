@@ -41,17 +41,19 @@
                 skinsPath: '/tone/vekada/css/layerslider/',
                 skin: 'minimal'
             });
-
-            var navH = $(".top_fix").offset().top;
-            var width=$(".top_fix").width();
-            $(window).scroll(function (){
-                var scroH = $(this).scrollTop();
-                if (scroH >= navH) {
-                    $(".top_fix").css({"position": "fixed", "top": 0,"width":width});
-                } else if (scroH < navH) {
-                    $(".top_fix").css({"position": "static","width":"auto"});
-                }
-            })
+            var top_fix=$(".top_fix");
+            if(top_fix.length!==0){
+                var navH = top_fix.offset().top;
+                var width=top_fix.width();
+                $(window).scroll(function (){
+                    var scroH = $(this).scrollTop();
+                    if (scroH >= navH) {
+                        $(".top_fix").css({"position": "fixed", "top": 0,"width":width});
+                    } else if (scroH < navH) {
+                        $(".top_fix").css({"position": "static","width":"auto"});
+                    }
+                })
+            }
         });
     </script>
 

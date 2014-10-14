@@ -117,6 +117,7 @@ class Services extends CI_Controller
         $t = is_array($nodes);
         echo json_encode($nodes, 2);
 
+
     }
 
     private function GetNodesByPath($path)
